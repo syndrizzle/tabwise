@@ -1,13 +1,31 @@
 ---
+import ThemeScript from "@/components/ThemeScript.astro"
 import "@/styles/global.css"
+
+interface Props {
+  title: string
+  description: string
+  noindex?: boolean
+}
+
+const { title, description, noindex = false } = Astro.props
 ---
 
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="color-scheme" content="light dark" />
+    <meta
+      name="robots"
+      content={noindex ? "noindex" : "index, follow, max-image-preview:large"}
+    />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>Astro App</title>
+    <title>{title}</title>
+    <ThemeScript />
+    <slot name="head" />
   </head>
   <body>
     <slot />

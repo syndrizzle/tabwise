@@ -1,17 +1,39 @@
 ---
 import Layout from "@/layouts/main.astro"
-import { Button } from "@/components/ui/button"
+import Header from "@/components/Header.astro"
+
+const title = "Student tablet finder in India, with or without a pen — Tabwise"
+const description =
+  "Find a student tablet for notes, PDFs, lectures and reading. Compare dated India prices, with a pen or without."
 ---
 
-<Layout>
-  <div class="flex min-h-svh p-6">
-    <div class="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
-      <div>
-        <h1 class="font-medium">Project ready!</h1>
-        <p>You may now add components and start building.</p>
-        <p>We've already added the button component for you.</p>
-        <Button client:load className="mt-2">Button</Button>
-      </div>
-    </div>
+<Layout title={title} description={description}>
+  <a
+    href="#main"
+    class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-lg focus:bg-background focus:px-4 focus:py-2 focus:ring-2 focus:ring-ring"
+  >
+    Skip to content
+  </a>
+  <div class="mx-auto flex min-h-svh max-w-6xl flex-col px-6 sm:px-10">
+    <Header />
+    <main
+      id="main"
+      class="flex flex-1 flex-col items-center justify-center pt-4 pb-10 text-center sm:pb-12"
+    >
+      <section id="home-hero" class="flex flex-col items-center">
+        <p class="mb-4 text-sm font-medium text-primary dark:text-foreground">
+          Student tablets, simplified.
+        </p>
+        <h1 class="max-w-3xl font-heading text-[clamp(1.875rem,9.2vw,2.25rem)] leading-[1.15] tracking-tight sm:text-[3.5rem]">
+          Find a tablet for
+          <br class="hidden sm:block" /> the way you study.
+        </h1>
+        <p class="mt-5 max-w-lg text-base leading-relaxed text-muted-foreground sm:text-lg">
+          Notes, PDFs, lectures, and everyday study—with a pen or without. A
+          little clarity for your next tablet.
+        </p>
+      </section>
+    </main>
   </div>
 </Layout>
+

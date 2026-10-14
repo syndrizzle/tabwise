@@ -1,0 +1,51 @@
+<!-- Apply the preference in the head before any page content paints. -->
+<script is:inline>
+  ;(() => {
+    const storageKey = "theme"
+    const root = document.documentElement
+    const systemAppearance = window.matchMedia("(prefers-color-scheme: dark)")
+    const isTheme = (value) => ["light", "dark", "system"].includes(value)
+    let preference = "system"
+
+    try {
+      const stored = localStorage.getItem(storageKey)
+      if (isTheme(stored)) preference = stored
+    } catch {
+      // Theme switching still works when browser storage is unavailable.
+    }
+
+    const applyTheme = () => {
+      const dark =
+        preference === "dark" ||
+        (preference === "system" && systemAppearance.matches)
+
+      root.classList.toggle("dark", dark)
+      root.dataset.theme = preference
+      root.style.colorScheme = dark ? "dark" : "light"
+      window.dispatchEvent(new Event("tabwise:theme-change"))
+    }
+
+    window.addEventListener("tabwise:set-theme", (event) => {
+      if (!isTheme(event.detail)) return
+      preference = event.detail
+      try {
+        localStorage.setItem(storageKey, preference)
+      } catch {
+        // Keep the selected theme for this page even without persistence.
+      }
+      applyTheme()
+    })
+
+    systemAppearance.addEventListener("change", () => {
+      if (preference === "system") applyTheme()
+    })
+
+    window.addEventListener("storage", (event) => {
+      if (event.key !== storageKey && event.key !== null) return
+      preference = isTheme(event.newValue) ? event.newValue : "system"
+      applyTheme()
+    })
+
+    applyTheme()
+  })()
+</script>
