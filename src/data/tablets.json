@@ -1,0 +1,944 @@
+[
+  {
+    "id": "apple-ipad-a16",
+    "name": "iPad (A16)",
+    "brand": "Apple",
+    "platform": "ipados",
+    "screenInches": 11,
+    "weightUpperGrams": 477,
+    "weightLabel": "Approx. 477g",
+    "image": {
+      "url": "https://www.apple.com/v/ipad-11/specs/d/images/meta/ipad-11_specs__bdyzr0g7cz9e_og.png?202609141051",
+      "width": 1200,
+      "height": 630,
+      "alt": "iPad (A16)",
+      "checkedAt": "2026-10-14T16:14:53.236Z",
+      "contentType": "image/png",
+      "cacheControl": "max-age=3600",
+      "contentBytes": 169721,
+      "sourceUrl": "https://www.apple.com/in/ipad-11/specs/"
+    },
+    "offers": [
+      {
+        "id": "128-wifi",
+        "ramGb": null,
+        "storageGb": 128,
+        "connectivity": "Wi-Fi",
+        "purchasePriceInr": 49900,
+        "totalInr": 57800,
+        "eligibility": {
+          "none": true,
+          "now": true,
+          "later": true
+        },
+        "tabletPriceInr": 49900,
+        "bundlePriceInr": null,
+        "penPriceInr": 7900,
+        "penName": "Apple Pencil (USB-C)",
+        "penIncluded": false,
+        "pressureSensitive": false,
+        "priceDate": "2026-10-15",
+        "availability": "unknown",
+        "priceUrl": "https://www.apple.com/in/shop/buy-ipad/ipad",
+        "penPriceUrl": "https://www.apple.com/in/shop/product/muwa3zm/a/apple-pencil-usb-c"
+      },
+      {
+        "id": "256-wifi",
+        "ramGb": null,
+        "storageGb": 256,
+        "connectivity": "Wi-Fi",
+        "purchasePriceInr": 61900,
+        "totalInr": 69800,
+        "eligibility": {
+          "none": true,
+          "now": true,
+          "later": true
+        },
+        "tabletPriceInr": 61900,
+        "bundlePriceInr": null,
+        "penPriceInr": 7900,
+        "penName": "Apple Pencil (USB-C)",
+        "penIncluded": false,
+        "pressureSensitive": false,
+        "priceDate": "2026-10-15",
+        "availability": "unknown",
+        "priceUrl": "https://www.apple.com/in/shop/buy-ipad/ipad",
+        "penPriceUrl": "https://www.apple.com/in/shop/product/muwa3zm/a/apple-pencil-usb-c"
+      },
+      {
+        "id": "512-wifi",
+        "ramGb": null,
+        "storageGb": 512,
+        "connectivity": "Wi-Fi",
+        "purchasePriceInr": 85900,
+        "totalInr": 93800,
+        "eligibility": {
+          "none": true,
+          "now": true,
+          "later": true
+        },
+        "tabletPriceInr": 85900,
+        "bundlePriceInr": null,
+        "penPriceInr": 7900,
+        "penName": "Apple Pencil (USB-C)",
+        "penIncluded": false,
+        "pressureSensitive": false,
+        "priceDate": "2026-10-15",
+        "availability": "unknown",
+        "priceUrl": "https://www.apple.com/in/shop/buy-ipad/ipad",
+        "penPriceUrl": "https://www.apple.com/in/shop/product/muwa3zm/a/apple-pencil-usb-c"
+      }
+    ],
+    "productUrl": "https://www.apple.com/in/ipad-11/specs/",
+    "tradeoff": "The USB-C Pencil has no pressure sensitivity, and the screen is not laminated.",
+    "penCaveat": null,
+    "reviewNotes": [
+      {
+        "summary": "The reviewer found palm rejection effective while drawing and noted a visible gap between the pen tip and ink on the non-laminated screen.",
+        "configuration": "iPad 11 (A16) with Apple Pencil 1st generation",
+        "limitation": "The article reuses some line-test graphics from another iPad; those are not treated as new A16 measurements.",
+        "url": "https://www.parkablogs.com/index.php/content/apple-ipad-11-2025-artist-review",
+        "title": "Artist Review: iPad 11 (2025) | Parka Blogs"
+      }
+    ]
+  },
+  {
+    "id": "lenovo-idea-tab",
+    "name": "Idea Tab",
+    "brand": "Lenovo",
+    "platform": "android",
+    "screenInches": 11,
+    "weightUpperGrams": 490,
+    "weightLabel": "Approx. 480g",
+    "image": {
+      "url": "https://p2-ofp.static.pub//fes/cms/2025/08/12/bo0whk5glufy742jpogpvqqdqulvks433621.jpg",
+      "width": 400,
+      "height": 300,
+      "alt": "Idea Tab",
+      "checkedAt": "2026-10-15T05:22:05.659Z",
+      "contentType": "image/jpeg",
+      "cacheControl": "private, no-transform, max-age=2014150",
+      "contentBytes": 29856,
+      "sourceUrl": "https://www.lenovo.com/in/en/p/tablets/android-tablets/lenovo-tab-series/lenovo-idea-tab/len103l0028"
+    },
+    "offers": [
+      {
+        "id": "8-256-wifi-pen",
+        "ramGb": 8,
+        "storageGb": 256,
+        "connectivity": "Wi-Fi",
+        "purchasePriceInr": 26999,
+        "totalInr": 26999,
+        "eligibility": {
+          "none": true,
+          "now": true,
+          "later": true
+        },
+        "tabletPriceInr": 26999,
+        "bundlePriceInr": null,
+        "penPriceInr": 0,
+        "penName": "Lenovo Tab Pen",
+        "penIncluded": true,
+        "pressureSensitive": true,
+        "priceDate": "2026-10-15",
+        "availability": "unknown",
+        "priceUrl": "https://www.reliancedigital.in/collection/lenovo-idea-tab-tablets",
+        "penPriceUrl": "https://www.reliancedigital.in/collection/lenovo-idea-tab-tablets"
+      },
+      {
+        "id": "8-256-5g-pen",
+        "ramGb": 8,
+        "storageGb": 256,
+        "connectivity": "5G",
+        "purchasePriceInr": 29999,
+        "totalInr": 29999,
+        "eligibility": {
+          "none": true,
+          "now": true,
+          "later": true
+        },
+        "tabletPriceInr": 29999,
+        "bundlePriceInr": null,
+        "penPriceInr": 0,
+        "penName": "Lenovo Tab Pen",
+        "penIncluded": true,
+        "pressureSensitive": true,
+        "priceDate": "2026-10-15",
+        "availability": "unknown",
+        "priceUrl": "https://www.reliancedigital.in/collection/lenovo-idea-tab-tablets",
+        "penPriceUrl": "https://www.reliancedigital.in/collection/lenovo-idea-tab-tablets"
+      }
+    ],
+    "productUrl": "https://psref.lenovo.com/syspool/Sys/PDF/Lenovo_Tablets/Idea_Tab/Idea_Tab_Spec.html",
+    "tradeoff": "The reviewer found the writing feel less refined than Samsung S Pen or Apple Pencil.",
+    "penCaveat": null,
+    "reviewNotes": [
+      {
+        "summary": "The reviewer tested the Tab Pen in Nebo, Noteshelf 3 and Lenovo Notepad and found it suitable for short notes, with useful palm rejection.",
+        "configuration": "Lenovo Idea Tab 8GB/128GB with included Tab Pen; review unit region not specified",
+        "limitation": null,
+        "url": "https://mynexttablet.com/lenovo-idea-tab-review/",
+        "title": "Lenovo Idea Tab Review: How Good Is It, Really?"
+      },
+      {
+        "summary": "Writing feel was less refined than Apple Pencil or S Pen in the reviewer’s comparison, and demanding graphics performance was limited.",
+        "configuration": "Same Idea Tab review",
+        "limitation": null,
+        "url": "https://mynexttablet.com/lenovo-idea-tab-review/",
+        "title": "Lenovo Idea Tab Review: How Good Is It, Really?"
+      }
+    ]
+  },
+  {
+    "id": "lenovo-idea-tab-pro",
+    "name": "Idea Tab Pro",
+    "brand": "Lenovo",
+    "platform": "android",
+    "screenInches": 12.7,
+    "weightUpperGrams": 620,
+    "weightLabel": "Approx. 620g",
+    "image": {
+      "url": "https://p2-ofp.static.pub//fes/cms/2024/11/25/o36w6ogvyiyrhlyzzu8zugbxemdhmw334846.png",
+      "width": 400,
+      "height": 300,
+      "alt": "Idea Tab Pro",
+      "checkedAt": "2026-10-15T05:22:07.357Z",
+      "contentType": "image/png",
+      "cacheControl": "private, no-transform, max-age=2014309",
+      "contentBytes": 69715,
+      "sourceUrl": "https://www.lenovo.com/in/en/p/tablets/android-tablets/lenovo-tab-series/lenovo-idea-tab-pro/len103l0026"
+    },
+    "offers": [
+      {
+        "id": "8-128-wifi-pen",
+        "ramGb": 8,
+        "storageGb": 128,
+        "connectivity": "Wi-Fi",
+        "purchasePriceInr": 28990,
+        "totalInr": 28990,
+        "eligibility": {
+          "none": true,
+          "now": true,
+          "later": true
+        },
+        "tabletPriceInr": 28990,
+        "bundlePriceInr": null,
+        "penPriceInr": 0,
+        "penName": "Lenovo Tab Pen Plus",
+        "penIncluded": true,
+        "pressureSensitive": true,
+        "priceDate": "2026-10-15",
+        "availability": "unknown",
+        "priceUrl": "https://www.reliancedigital.in/collection/lenovo-ideatab-pro-tablets/",
+        "penPriceUrl": "https://www.reliancedigital.in/collection/lenovo-ideatab-pro-tablets/"
+      },
+      {
+        "id": "12-256-wifi-pen",
+        "ramGb": 12,
+        "storageGb": 256,
+        "connectivity": "Wi-Fi",
+        "purchasePriceInr": 34990,
+        "totalInr": 34990,
+        "eligibility": {
+          "none": true,
+          "now": true,
+          "later": true
+        },
+        "tabletPriceInr": 34990,
+        "bundlePriceInr": null,
+        "penPriceInr": 0,
+        "penName": "Lenovo Tab Pen Plus",
+        "penIncluded": true,
+        "pressureSensitive": true,
+        "priceDate": "2026-10-15",
+        "availability": "unknown",
+        "priceUrl": "https://www.reliancedigital.in/collection/lenovo-ideatab-pro-tablets/",
+        "penPriceUrl": "https://www.reliancedigital.in/collection/lenovo-ideatab-pro-tablets/"
+      }
+    ],
+    "productUrl": "https://psref.lenovo.com/syspool/Sys/PDF/Lenovo_Tablets/Idea_Tab_Pro/Idea_Tab_Pro_Spec.html",
+    "tradeoff": "Around 620g to carry. The reviewer found tilt too sensitive in some drawing apps.",
+    "penCaveat": null,
+    "reviewNotes": [
+      {
+        "summary": "The reviewer found handwriting accurate with low visible latency, and the large laminated display useful for note-taking and casual drawing.",
+        "configuration": "Global-ROM Idea Tab Pro with Lenovo Tab Pen Plus; 8GB/256GB Singapore unit",
+        "limitation": null,
+        "url": "https://www.parkablogs.com/index.php/content/artist-review-lenovo-idea-tab-pro-xiaoxin-12-7-2025",
+        "title": "Artist Review: Lenovo Idea Tab Pro (Xiaoxin Pad Pro 12.7 2025) | Parka Blogs"
+      },
+      {
+        "summary": "Tilt activated too readily in some drawing apps and strokes tended to thicken; the 620g tablet is less comfortable to hold for long periods. The pen charges over USB-C.",
+        "configuration": "Same Idea Tab Pro and Tab Pen Plus review",
+        "limitation": null,
+        "url": "https://www.parkablogs.com/index.php/content/artist-review-lenovo-idea-tab-pro-xiaoxin-12-7-2025",
+        "title": "Artist Review: Lenovo Idea Tab Pro (Xiaoxin Pad Pro 12.7 2025) | Parka Blogs"
+      }
+    ]
+  },
+  {
+    "id": "lenovo-tab-m11",
+    "name": "Tab M11",
+    "brand": "Lenovo",
+    "platform": "android",
+    "screenInches": 11,
+    "weightUpperGrams": 465,
+    "weightLabel": "Approx. 465g",
+    "image": {
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/Lenovo_Tablets/Tab_M11/Tab_M11_OverViewPic.jpg",
+      "width": 990,
+      "height": 620,
+      "alt": "Tab M11",
+      "checkedAt": "2026-10-15T05:25:56.710Z",
+      "contentType": "image/jpeg",
+      "cacheControl": "private, no-transform, max-age=585",
+      "contentBytes": 23413,
+      "sourceUrl": "https://psref.lenovo.com/syspool/Sys/PDF/Lenovo_Tablets/Tab_M11/Tab_M11_Spec.html"
+    },
+    "offers": [
+      {
+        "id": "8-128-lte-pen",
+        "ramGb": 8,
+        "storageGb": 128,
+        "connectivity": "4G",
+        "purchasePriceInr": 21999,
+        "totalInr": null,
+        "eligibility": {
+          "none": true,
+          "now": false,
+          "later": false
+        },
+        "tabletPriceInr": null,
+        "bundlePriceInr": 21999,
+        "penPriceInr": 0,
+        "penName": null,
+        "penIncluded": true,
+        "pressureSensitive": null,
+        "priceDate": "2026-10-15",
+        "availability": "unknown",
+        "priceUrl": "https://www.reliancedigital.in/product/lenovo-m11-acc-2794-cm-11-inch-lte-tablet-with-s-pen-8-gb-ram-128-gb-seafoam-green-tb330xu-lucvqt-7537968",
+        "penPriceUrl": null
+      }
+    ],
+    "productUrl": "https://psref.lenovo.com/syspool/Sys/PDF/Lenovo_Tablets/Tab_M11/Tab_M11_Spec.html",
+    "tradeoff": "Check the exact bundle and app support before buying.",
+    "penCaveat": "No complete named active-pen setup is verified for this offer. Do not assume a generic or unidentified bundled pen supports handwriting with palm rejection.",
+    "reviewNotes": [
+      {
+        "summary": "A student’s long-term review describes daily handwritten university notes and PDF reading in Nebo. Palm rejection generally worked, with occasional issues while charging at the reviewer’s campus.",
+        "configuration": "Lenovo Tab M11 with bundled AP400U Tab Pen; long-term personal review",
+        "limitation": "Single-owner account, not a controlled benchmark or proof of a universal charging fault.",
+        "url": "https://snikolaj.com/2025/07/07/lenovo-tab-m11-review-update-1-5-years-later/",
+        "title": "Lenovo Tab M11 Review Update – 1.5 Years Later"
+      },
+      {
+        "summary": "The reviewer noticed sluggish app launches and some slow websites, while still liking the pen experience.",
+        "configuration": "Same long-term M11 review",
+        "limitation": null,
+        "url": "https://snikolaj.com/2025/07/07/lenovo-tab-m11-review-update-1-5-years-later/",
+        "title": "Lenovo Tab M11 Review Update – 1.5 Years Later"
+      }
+    ]
+  },
+  {
+    "id": "moto-pad-60-neo",
+    "name": "moto pad 60 neo",
+    "brand": "Motorola",
+    "platform": "android",
+    "screenInches": 11,
+    "weightUpperGrams": 490,
+    "weightLabel": "Approx. 480g",
+    "image": {
+      "url": "https://motorolain.vteximg.com.br/arquivos/ids/162490/12380464_Renders-images-1000x1000-px_RR-02.jpg?v=639221984030130000",
+      "width": 1000,
+      "height": 1000,
+      "alt": "moto pad 60 neo",
+      "checkedAt": "2026-10-15T05:04:59.753Z",
+      "contentType": "image/jpeg",
+      "cacheControl": "public, max-age=345600",
+      "contentBytes": 47030,
+      "sourceUrl": "https://www.motorola.in/api/catalog_system/pub/products/search/moto-pad-60-neo/p"
+    },
+    "offers": [
+      {
+        "id": "585",
+        "ramGb": 4,
+        "storageGb": 128,
+        "connectivity": "5G",
+        "purchasePriceInr": 21999,
+        "totalInr": 21999,
+        "eligibility": {
+          "none": true,
+          "now": true,
+          "later": true
+        },
+        "tabletPriceInr": 21999,
+        "bundlePriceInr": null,
+        "penPriceInr": 0,
+        "penName": "Moto Pen",
+        "penIncluded": true,
+        "pressureSensitive": null,
+        "priceDate": "2026-10-15",
+        "availability": "in-stock",
+        "priceUrl": "https://www.motorola.in/moto-pad-60-neo/p",
+        "penPriceUrl": "https://www.motorola.in/moto-pad-60-neo/p"
+      }
+    ],
+    "productUrl": "https://www.motorola.in/moto-pad-60-neo/p",
+    "tradeoff": "The display is reflective. Its pen needs a replaceable AAAA battery.",
+    "penCaveat": null,
+    "reviewNotes": [
+      {
+        "summary": "The reviewer could draw with a palm resting on the screen without stray touch input. The pen uses a replaceable AAAA battery and has no on-tablet storage slot.",
+        "configuration": "Indonesian Moto Pad 60 Neo with bundled Moto Pen; color and bundles may differ by region",
+        "limitation": null,
+        "url": "https://www.91mobiles.com/id/hub/review-moto-pad-60-neo-tablet-murah-dengan-stylus-dan-multi-tasking-andal/",
+        "title": "Review Moto Pad 60 Neo: Tablet Murah dengan Stylus dan Multi-tasking Andal | Indonesia Blog"
+      },
+      {
+        "summary": "The display was reflective in bright conditions; the reviewer found desktop-style multitasking useful for arranging several windows.",
+        "configuration": "Indonesian Moto Pad 60 Neo with bundled Moto Pen; color and bundles may differ by region",
+        "limitation": null,
+        "url": "https://www.91mobiles.com/id/hub/review-moto-pad-60-neo-tablet-murah-dengan-stylus-dan-multi-tasking-andal/",
+        "title": "Review Moto Pad 60 Neo: Tablet Murah dengan Stylus dan Multi-tasking Andal | Indonesia Blog"
+      }
+    ]
+  },
+  {
+    "id": "oneplus-pad-go-2",
+    "name": "OnePlus Pad Go 2",
+    "brand": "OnePlus",
+    "platform": "android",
+    "screenInches": 12.1,
+    "weightUpperGrams": 597,
+    "weightLabel": "Approx. 597g",
+    "image": {
+      "url": "https://www.oneplus.in/content/dam/oneplus/2025/specs/pad-go-2/Lavender-Drift_1080x1080.png",
+      "width": 1080,
+      "height": 1080,
+      "alt": "OnePlus Pad Go 2",
+      "checkedAt": "2026-10-15T05:05:38.120Z",
+      "contentType": "image/png",
+      "cacheControl": "max-age=2592000",
+      "contentBytes": 168073,
+      "sourceUrl": "https://www.oneplus.in/oneplus-pad-go-2/specs"
+    },
+    "offers": [
+      {
+        "id": "8-128-wifi-shadow-black",
+        "ramGb": 8,
+        "storageGb": 128,
+        "connectivity": "Wi-Fi",
+        "purchasePriceInr": 29999,
+        "totalInr": 33998,
+        "eligibility": {
+          "none": true,
+          "now": false,
+          "later": false
+        },
+        "tabletPriceInr": 29999,
+        "bundlePriceInr": null,
+        "penPriceInr": 3999,
+        "penName": "OnePlus Pad Go 2 Stylo",
+        "penIncluded": false,
+        "pressureSensitive": null,
+        "priceDate": "2026-10-15",
+        "availability": "unknown",
+        "priceUrl": "https://www.reliancedigital.in/product/oneplus-pad-go-2-3073-cm-121-inch-8-gb-ram-128-gb-shadow-black-wi-fi-tablet-opd2504-mjba96-9696540",
+        "penPriceUrl": "https://www.reliancedigital.in/collection/oneplus-pad-go-2-accessories"
+      }
+    ],
+    "productUrl": "https://www.oneplus.in/oneplus-pad-go-2/specs",
+    "tradeoff": "Check the exact bundle and app support before buying.",
+    "penCaveat": "Pen evidence is unresolved or conflicting; this is a tablet-only recommendation, not a verified handwriting setup.",
+    "reviewNotes": [
+      {
+        "summary": "Two testers reported responsive pen input and successful palm rejection. Quick note shortcuts were useful in the reviewer’s workflow.",
+        "configuration": "OnePlus Pad Go 2 with Pad Go 2 Stylo; firmware/app versions not fully specified",
+        "limitation": null,
+        "url": "https://www.91mobiles.com/reviews/oneplus-pad-go-2-review/",
+        "title": "OnePlus Pad Go 2 review: a sensible upgrade, not a flashy one | 91mobiles.com"
+      },
+      {
+        "summary": "TechPP’s tester found writing useful but said palm rejection appeared absent. This conflicts with the 91mobiles experience.",
+        "configuration": "OnePlus Pad Go 2 with Pad Go 2 Stylo; December 2025 review",
+        "limitation": "Do not resolve this disagreement by assuming all firmware or apps behave alike.",
+        "url": "https://techpp.com/2025/12/18/oneplus-pad-go-2-review/",
+        "title": "OnePlus Pad Go 2 Review: Adding a Pro touch to the Go! - TechPP"
+      }
+    ]
+  },
+  {
+    "id": "redmi-pad-2",
+    "name": "Redmi Pad 2",
+    "brand": "Xiaomi",
+    "platform": "android",
+    "screenInches": 11,
+    "weightUpperGrams": 519,
+    "weightLabel": "510–519g",
+    "image": {
+      "url": "https://i03.appmifile.com/89_item_in/16/06/2025/042de491a30693da901ec147af8e4eb6.jpg?f=webp",
+      "width": 1600,
+      "height": 1600,
+      "alt": "Redmi Pad 2",
+      "checkedAt": "2026-10-15T05:04:46.189Z",
+      "contentType": "image/webp",
+      "cacheControl": "max-age=10368000",
+      "contentBytes": 73098,
+      "originalUrl": "https://i03.appmifile.com/89_item_in/16/06/2025/042de491a30693da901ec147af8e4eb6.jpg",
+      "sourceUrl": "https://www.mi.com/in/product/redmi-pad-2/specs/"
+    },
+    "offers": [
+      {
+        "id": "4-128-wi-fi",
+        "ramGb": 4,
+        "storageGb": 128,
+        "connectivity": "Wi-Fi",
+        "purchasePriceInr": 17990,
+        "totalInr": 20989,
+        "eligibility": {
+          "none": true,
+          "now": true,
+          "later": true
+        },
+        "tabletPriceInr": 17990,
+        "bundlePriceInr": null,
+        "penPriceInr": 2999,
+        "penName": "REDMI Smart Pen 1S",
+        "penIncluded": false,
+        "pressureSensitive": true,
+        "priceDate": "2026-10-15",
+        "availability": "unknown",
+        "priceUrl": "https://www.reliancedigital.in/collection/redmi-pad-2-tablet-20250624",
+        "penPriceUrl": "https://store.mi.com/in/products/473-0-0-0-0-0"
+      },
+      {
+        "id": "6-128-4g",
+        "ramGb": 6,
+        "storageGb": 128,
+        "connectivity": "4G",
+        "purchasePriceInr": 21990,
+        "totalInr": 24989,
+        "eligibility": {
+          "none": true,
+          "now": true,
+          "later": true
+        },
+        "tabletPriceInr": 21990,
+        "bundlePriceInr": null,
+        "penPriceInr": 2999,
+        "penName": "REDMI Smart Pen 1S",
+        "penIncluded": false,
+        "pressureSensitive": true,
+        "priceDate": "2026-10-15",
+        "availability": "unknown",
+        "priceUrl": "https://www.reliancedigital.in/collection/redmi-pad-2-tablet-20250624",
+        "penPriceUrl": "https://store.mi.com/in/products/473-0-0-0-0-0"
+      },
+      {
+        "id": "8-256-4g",
+        "ramGb": 8,
+        "storageGb": 256,
+        "connectivity": "4G",
+        "purchasePriceInr": 23990,
+        "totalInr": 26989,
+        "eligibility": {
+          "none": true,
+          "now": true,
+          "later": true
+        },
+        "tabletPriceInr": 23990,
+        "bundlePriceInr": null,
+        "penPriceInr": 2999,
+        "penName": "REDMI Smart Pen 1S",
+        "penIncluded": false,
+        "pressureSensitive": true,
+        "priceDate": "2026-10-15",
+        "availability": "unknown",
+        "priceUrl": "https://www.reliancedigital.in/collection/redmi-pad-2-tablet-20250624",
+        "penPriceUrl": "https://store.mi.com/in/products/473-0-0-0-0-0"
+      }
+    ],
+    "productUrl": "https://www.mi.com/in/product/redmi-pad-2/specs/",
+    "tradeoff": "The newer 1S pen was not independently tested here; older-pen reviews reported accidental undo gestures.",
+    "penCaveat": null,
+    "reviewNotes": [
+      {
+        "summary": "Writing and casual drawing were usable with the original Redmi Smart Pen, but palm contact could trigger two-finger undo gestures in drawing apps.",
+        "configuration": "11-inch Redmi Pad 2 with original Redmi Smart Pen; 2025 review",
+        "limitation": "This is not a test of the newer Smart Pen 1S; app-specific gestures matter.",
+        "url": "https://www.parkablogs.com/content/xiaomi-redmi-pad-2-2025-artist-review",
+        "title": "Artist Review: Redmi Pad 2 (2025) with Redmi Smart Pen | Parka Blogs"
+      },
+      {
+        "summary": "The reviewer found the glossy surface harder to control for drawing than writing. Pen performance should not be described as equivalent to a dedicated drawing tablet.",
+        "configuration": "Original Redmi Smart Pen on glossy display",
+        "limitation": null,
+        "url": "https://www.parkablogs.com/content/xiaomi-redmi-pad-2-2025-artist-review",
+        "title": "Artist Review: Redmi Pad 2 (2025) with Redmi Smart Pen | Parka Blogs"
+      }
+    ]
+  },
+  {
+    "id": "redmi-pad-2-pro-5g",
+    "name": "Redmi Pad 2 Pro 5G",
+    "brand": "Xiaomi",
+    "platform": "android",
+    "screenInches": 12.1,
+    "weightUpperGrams": 620,
+    "weightLabel": "610–620g",
+    "image": {
+      "url": "https://i03.appmifile.com/860_item_in/31/12/2025/649044d646d47b0bd532d3fca8951b7e.png?f=webp",
+      "width": 1600,
+      "height": 1600,
+      "alt": "Redmi Pad 2 Pro 5G",
+      "checkedAt": "2026-10-15T05:04:47.838Z",
+      "contentType": "image/webp",
+      "cacheControl": "max-age=10368000",
+      "contentBytes": 84576,
+      "originalUrl": "https://i03.appmifile.com/860_item_in/31/12/2025/649044d646d47b0bd532d3fca8951b7e.png",
+      "sourceUrl": "https://www.mi.com/in/product/redmi-pad-2-pro-5g/specs/"
+    },
+    "offers": [
+      {
+        "id": "8-128-5g",
+        "ramGb": 8,
+        "storageGb": 128,
+        "connectivity": "5G",
+        "purchasePriceInr": 29999,
+        "totalInr": 32998,
+        "eligibility": {
+          "none": true,
+          "now": true,
+          "later": true
+        },
+        "tabletPriceInr": 29999,
+        "bundlePriceInr": null,
+        "penPriceInr": 2999,
+        "penName": "REDMI Smart Pen 1S",
+        "penIncluded": false,
+        "pressureSensitive": true,
+        "priceDate": "2026-10-15",
+        "availability": "in-stock",
+        "priceUrl": "https://store.mi.com/in/products/473-0-0-0-0-0",
+        "penPriceUrl": "https://store.mi.com/in/products/473-0-0-0-0-0"
+      },
+      {
+        "id": "8-256-5g-1s-bundle",
+        "ramGb": 8,
+        "storageGb": 256,
+        "connectivity": "5G",
+        "purchasePriceInr": 35998,
+        "totalInr": 35998,
+        "eligibility": {
+          "none": true,
+          "now": true,
+          "later": true
+        },
+        "tabletPriceInr": null,
+        "bundlePriceInr": 35998,
+        "penPriceInr": 0,
+        "penName": "REDMI Smart Pen 1S",
+        "penIncluded": true,
+        "pressureSensitive": true,
+        "priceDate": "2026-10-15",
+        "availability": "unknown",
+        "priceUrl": "https://store.mi.com/in/products/473-0-0-0-0-0",
+        "penPriceUrl": "https://store.mi.com/in/products/473-0-0-0-0-0"
+      }
+    ],
+    "productUrl": "https://www.mi.com/in/product/redmi-pad-2-pro-5g/specs/",
+    "tradeoff": "These reviews did not directly test the India 5G model with the newer 1S pen.",
+    "penCaveat": null,
+    "reviewNotes": [
+      {
+        "summary": "Handwriting worked, but the reviewer found occasional unintended undo actions and drawing defects in several apps. IbisPaint X, Concepts and HiPaint behaved better in the reviewer’s tests.",
+        "configuration": "Redmi Pad 2 Pro Wi-Fi with original Redmi Smart Pen; Singapore unit",
+        "limitation": "Regional Wi-Fi sibling evidence, not a direct test of the India 5G model or Smart Pen 1S.",
+        "url": "https://www.parkablogs.com/index.php/content/redmi-pad-2-pro-smart-pen-artist-review",
+        "title": "Artist Review: Redmi Pad 2 Pro (2025) with Redmi Smart Pen | Parka Blogs"
+      },
+      {
+        "summary": "The Indonesian reviewer also reported palm touches being registered despite palm-rejection support.",
+        "configuration": "Redmi Pad 2 Pro regional review; pen/software configuration not fully specified",
+        "limitation": "Do not generalize this result to every firmware or the newer 1S pen.",
+        "url": "https://gadget.jagatreview.com/2025/11/review-redmi-pad-2-pro-tablet/",
+        "title": "Review Redmi Pad 2 Pro: Tablet Terlengkap dan Terbaik Redmi di 2025! • Jagat Gadget"
+      }
+    ]
+  },
+  {
+    "id": "samsung-galaxy-tab-s10-fe",
+    "name": "Galaxy Tab S10 FE",
+    "brand": "Samsung",
+    "platform": "android",
+    "screenInches": 10.91,
+    "weightUpperGrams": 497,
+    "weightLabel": "Approx. 497g",
+    "image": {
+      "url": "https://images.samsung.com/is/image/samsung/p6pim/in/feature/166006307/in-feature-galaxy-tab-s-545820592?$900_N_JPG$",
+      "width": 900,
+      "height": 600,
+      "alt": "Galaxy Tab S10 FE",
+      "checkedAt": "2026-10-15T05:04:53.602Z",
+      "contentType": "image/jpeg",
+      "cacheControl": "private, no-transform, max-age=3600",
+      "contentBytes": 29067,
+      "sourceUrl": "https://www.samsung.com/in/tablets/galaxy-tab-s/galaxy-tab-s10-fe-blue-128gb-sm-x520nlbains/"
+    },
+    "offers": [
+      {
+        "id": "8-128-wifi-blue",
+        "ramGb": 8,
+        "storageGb": 128,
+        "connectivity": "Wi-Fi",
+        "purchasePriceInr": 52999,
+        "totalInr": 52999,
+        "eligibility": {
+          "none": true,
+          "now": true,
+          "later": true
+        },
+        "tabletPriceInr": 52999,
+        "bundlePriceInr": null,
+        "penPriceInr": 0,
+        "penName": "Samsung S Pen",
+        "penIncluded": true,
+        "pressureSensitive": true,
+        "priceDate": "2026-10-15",
+        "availability": "in-stock",
+        "priceUrl": "https://www.samsung.com/in/tablets/galaxy-tab-s10-fe/buy/",
+        "penPriceUrl": "https://www.samsung.com/in/tablets/galaxy-tab-s/galaxy-tab-s10-fe-blue-128gb-sm-x520nlbains/"
+      },
+      {
+        "id": "8-128-5g-blue",
+        "ramGb": 8,
+        "storageGb": 128,
+        "connectivity": "5G",
+        "purchasePriceInr": 62999,
+        "totalInr": 62999,
+        "eligibility": {
+          "none": true,
+          "now": true,
+          "later": true
+        },
+        "tabletPriceInr": 62999,
+        "bundlePriceInr": null,
+        "penPriceInr": 0,
+        "penName": "Samsung S Pen",
+        "penIncluded": true,
+        "pressureSensitive": true,
+        "priceDate": "2026-10-15",
+        "availability": "in-stock",
+        "priceUrl": "https://www.samsung.com/in/tablets/galaxy-tab-s10-fe/buy/",
+        "penPriceUrl": "https://www.samsung.com/in/tablets/galaxy-tab-s/galaxy-tab-s10-fe-blue-128gb-sm-x520nlbains/"
+      }
+    ],
+    "productUrl": "https://www.samsung.com/in/tablets/galaxy-tab-s/galaxy-tab-s10-fe-blue-128gb-sm-x520nlbains/",
+    "tradeoff": "The USB-C port cannot output video to an external monitor.",
+    "penCaveat": null,
+    "reviewNotes": [
+      {
+        "summary": "The reviewer used Samsung Notes for handwriting, shape-assisted sketches, schedules and PDF annotations, and preferred the laminated-screen writing feel to the base iPad.",
+        "configuration": "Galaxy Tab S10 FE / FE+ with included S Pen; review covers both models",
+        "limitation": null,
+        "url": "https://mynexttablet.com/samsung-galaxy-tab-s10-fe-review/",
+        "title": "Samsung Galaxy Tab S10 FE Review: Almost Perfect – But THIS Ruins Everything"
+      },
+      {
+        "summary": "The reviewer found CPU performance weaker value than competitors and confirmed that the USB-C port did not support an external monitor.",
+        "configuration": "FE-series review; base tablet specifications are stored separately",
+        "limitation": null,
+        "url": "https://mynexttablet.com/samsung-galaxy-tab-s10-fe-review/",
+        "title": "Samsung Galaxy Tab S10 FE Review: Almost Perfect – But THIS Ruins Everything"
+      }
+    ]
+  },
+  {
+    "id": "samsung-galaxy-tab-s10-lite",
+    "name": "Galaxy Tab S10 Lite",
+    "brand": "Samsung",
+    "platform": "android",
+    "screenInches": 10.91,
+    "weightUpperGrams": 524,
+    "weightLabel": "Approx. 524g",
+    "image": {
+      "url": "https://images.samsung.com/is/image/samsung/p6pim/in/feature/166561558/in-feature-galaxy-tab-s-549050336?$900_N_JPG$",
+      "width": 900,
+      "height": 600,
+      "alt": "Galaxy Tab S10 Lite",
+      "checkedAt": "2026-10-14T16:14:50.574Z",
+      "contentType": "image/jpeg",
+      "cacheControl": "private, no-transform, max-age=3600",
+      "contentBytes": 136194,
+      "sourceUrl": "https://www.samsung.com/in/tablets/galaxy-tab-s/galaxy-tab-s10-lite-gray-128gb-sm-x400nzaainu/"
+    },
+    "offers": [
+      {
+        "id": "6-128-wifi-gray",
+        "ramGb": 6,
+        "storageGb": 128,
+        "connectivity": "Wi-Fi",
+        "purchasePriceInr": 33999,
+        "totalInr": 33999,
+        "eligibility": {
+          "none": true,
+          "now": true,
+          "later": true
+        },
+        "tabletPriceInr": 33999,
+        "bundlePriceInr": null,
+        "penPriceInr": 0,
+        "penName": "Samsung S Pen",
+        "penIncluded": true,
+        "pressureSensitive": true,
+        "priceDate": "2026-10-15",
+        "availability": "unknown",
+        "priceUrl": "https://www.reliancedigital.in/collection/samsung-galaxy-tab-s10-lite-tablets",
+        "penPriceUrl": "https://www.reliancedigital.in/collection/samsung-galaxy-tab-s10-lite-tablets"
+      }
+    ],
+    "productUrl": "https://www.samsung.com/in/tablets/galaxy-tab-s/galaxy-tab-s10-lite-gray-128gb-sm-x400nzaainu/",
+    "tradeoff": "The reviewer noticed occasional stutters and limited display viewing angles.",
+    "penCaveat": null,
+    "reviewNotes": [
+      {
+        "summary": "The reviewer found the included, battery-free S Pen accurate with effective palm rejection, including drawing in MediBang Paint, Infinite Painter and Concepts.",
+        "configuration": "Galaxy Tab S10 Lite Wi-Fi with included S Pen; Singapore unit",
+        "limitation": null,
+        "url": "https://www.parkablogs.com/content/samsung-tab-s10-lite-2025-artist-review",
+        "title": "Artist Review: Samsung Tab S10 Lite (2025) | Parka Blogs"
+      },
+      {
+        "summary": "Occasional interface stutters and limited display viewing angles were noted. Tool-heavy drawing apps can feel cramped on the 10.9-inch screen.",
+        "configuration": "6GB/128GB Wi-Fi review unit",
+        "limitation": null,
+        "url": "https://www.parkablogs.com/content/samsung-tab-s10-lite-2025-artist-review",
+        "title": "Artist Review: Samsung Tab S10 Lite (2025) | Parka Blogs"
+      }
+    ]
+  },
+  {
+    "id": "xiaomi-pad-7",
+    "name": "Xiaomi Pad 7",
+    "brand": "Xiaomi",
+    "platform": "android",
+    "screenInches": 11.16,
+    "weightUpperGrams": 500,
+    "weightLabel": "Approx. 500g",
+    "image": {
+      "url": "https://i03.appmifile.com/541_item_in/30/04/2025/3df65efc8faa64f2c9d01d5a142d758d.jpg?f=webp",
+      "width": 1600,
+      "height": 1600,
+      "alt": "Xiaomi Pad 7",
+      "checkedAt": "2026-10-14T16:14:46.828Z",
+      "contentType": "image/webp",
+      "cacheControl": "max-age=10367651",
+      "contentBytes": 133908,
+      "originalUrl": "https://i03.appmifile.com/541_item_in/30/04/2025/3df65efc8faa64f2c9d01d5a142d758d.jpg",
+      "sourceUrl": "https://www.mi.com/in/product/xiaomi-pad-7/specs/"
+    },
+    "offers": [
+      {
+        "id": "8-128-wifi-reliance",
+        "ramGb": 8,
+        "storageGb": 128,
+        "connectivity": "Wi-Fi",
+        "purchasePriceInr": 28999,
+        "totalInr": 33498,
+        "eligibility": {
+          "none": true,
+          "now": true,
+          "later": true
+        },
+        "tabletPriceInr": 28999,
+        "bundlePriceInr": null,
+        "penPriceInr": 4499,
+        "penName": "Xiaomi Focus Pen",
+        "penIncluded": false,
+        "pressureSensitive": null,
+        "priceDate": "2026-10-15",
+        "availability": "unknown",
+        "priceUrl": "https://www.reliancedigital.in/product/xiaomi-pad-7-2844-cm-112-inch-wifi-tablet-128-gb-8-gb-ram-graphite-grey-vhu5252in-m5p82t-8831794",
+        "penPriceUrl": "https://store.mi.com/in/products/473-0-0-0-0-0"
+      }
+    ],
+    "productUrl": "https://www.mi.com/in/product/xiaomi-pad-7/specs/",
+    "tradeoff": "The pen costs extra. The cited review tested the standard display, not the nano-texture version.",
+    "penCaveat": null,
+    "reviewNotes": [
+      {
+        "summary": "The reviewer found Focus Pen responsive for drawing with effective palm rejection on the standard display. Xiaomi Notes, Mi Canvas and split-screen were useful productivity tools.",
+        "configuration": "Xiaomi Pad 7 standard display with Xiaomi Focus Pen; January 2025",
+        "limitation": null,
+        "url": "https://techpp.com/2025/01/28/xiaomi-pad-7-review/",
+        "title": "Xiaomi Pad 7 Review: A pad that can step into notebook shoes - TechPP"
+      },
+      {
+        "summary": "Nano-texture writing feel was not tested in this review; its standard-display observations should not be presented as a nano-texture review.",
+        "configuration": "Standard display review unit",
+        "limitation": "No nano-texture hands-on evidence from this source.",
+        "url": "https://techpp.com/2025/01/28/xiaomi-pad-7-review/",
+        "title": "Xiaomi Pad 7 Review: A pad that can step into notebook shoes - TechPP"
+      }
+    ]
+  },
+  {
+    "id": "xiaomi-pad-8",
+    "name": "Xiaomi Pad 8",
+    "brand": "Xiaomi",
+    "platform": "android",
+    "screenInches": 11.2,
+    "weightUpperGrams": 485,
+    "weightLabel": "Approx. 485g",
+    "image": {
+      "url": "https://i03.appmifile.com/35_item_in/05/03/2026/c6161f6b99dc29c40b0b1d7da5e434ee.png?f=webp",
+      "width": 1600,
+      "height": 1600,
+      "alt": "Xiaomi Pad 8",
+      "checkedAt": "2026-10-14T16:14:48.829Z",
+      "contentType": "image/webp",
+      "cacheControl": "max-age=10367650",
+      "contentBytes": 116462,
+      "originalUrl": "https://i03.appmifile.com/35_item_in/05/03/2026/c6161f6b99dc29c40b0b1d7da5e434ee.png",
+      "sourceUrl": "https://www.mi.com/in/product/xiaomi-pad-8/specs/"
+    },
+    "offers": [
+      {
+        "id": "8-128-standard-wifi",
+        "ramGb": 8,
+        "storageGb": 128,
+        "connectivity": "Wi-Fi",
+        "purchasePriceInr": 35999,
+        "totalInr": 41498,
+        "eligibility": {
+          "none": true,
+          "now": true,
+          "later": true
+        },
+        "tabletPriceInr": 35999,
+        "bundlePriceInr": null,
+        "penPriceInr": 5499,
+        "penName": "Xiaomi Focus Pen Pro",
+        "penIncluded": false,
+        "pressureSensitive": null,
+        "priceDate": "2026-10-15",
+        "availability": "in-stock",
+        "priceUrl": "https://store.mi.com/in/products/473-0-0-0-0-0",
+        "penPriceUrl": "https://store.mi.com/in/products/473-0-0-0-0-0"
+      }
+    ],
+    "productUrl": "https://www.mi.com/in/product/xiaomi-pad-8/specs/",
+    "tradeoff": "The pen costs extra. Xiaomi documents temporary finger-touch suppression while the pen is active.",
+    "penCaveat": null,
+    "reviewNotes": [
+      {
+        "summary": "The reviewer found the Focus Pen comfortable, responsive for handwriting and able to reject the palm while capturing fine details.",
+        "configuration": "Xiaomi Pad 8 with pen called “Focus Pen” in the article; exact pen generation is not specified",
+        "limitation": "Do not attribute these tests specifically to Focus Pen Pro.",
+        "url": "https://timesofindia.indiatimes.com/technology/reviews/xiaomi-pad-8-review-productivity-and-entertainment-in-one-sleek-package/articleshow/129968321.cms",
+        "title": "Xiaomi Pad 8 review: Productivity and entertainment in one sleek package - The Times of India"
+      }
+    ]
+  }
+]

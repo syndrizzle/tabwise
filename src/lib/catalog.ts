@@ -1,3 +1,5 @@
+import tabletData from "@/data/tablets.json"
+
 export type Platform = "android" | "ipados"
 export type PenPlan = "now" | "later" | "none"
 export type Availability = "in-stock" | "out-of-stock" | "unknown"
@@ -58,3 +60,25 @@ export type Tablet = {
   penCaveat: string | null
   reviewNotes: ReviewNote[]
 }
+
+export const tablets = tabletData as Tablet[]
+
+export const cheapestOffer = (tablet: Tablet) =>
+  [...tablet.offers].sort(
+    (a, b) =>
+      a.purchasePriceInr - b.purchasePriceInr || a.id.localeCompare(b.id)
+  )[0]
+
+export const hasVerifiedPen = (tablet: Tablet) =>
+  tablet.offers.some((offer) => offer.eligibility.now)
+
+export const priceDates = () =>
+  [...new Set(tablets.flatMap((t) => t.offers.map((o) => o.priceDate)))].sort()
+
+export const formatLongDate = (date: string) =>
+  new Date(`${date}T00:00:00Z`).toLocaleDateString("en-IN", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    timeZone: "UTC",
+  })
