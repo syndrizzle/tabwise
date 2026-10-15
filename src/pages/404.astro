@@ -1,0 +1,25 @@
+---
+import Layout from "@/layouts/main.astro"
+import Header from "@/components/Header.astro"
+import { TextLink } from "@/components/TextLink"
+---
+
+<Layout
+  title="Page not found — Tabwise"
+  description="This page could not be found. Return to the Tabwise student tablet finder."
+  noindex
+>
+  <div class="mx-auto max-w-6xl px-6 sm:px-10">
+    <Header />
+    <main class="mx-auto max-w-lg py-24 text-center">
+      <p class="text-sm text-muted-foreground">404</p>
+      <h1 class="mt-4 font-heading text-3xl">That page isn’t here.</h1>
+      <p class="mt-6 text-muted-foreground">
+        Let’s get you back to finding a tablet.
+      </p>
+      <TextLink href="/" className="mt-8">
+        Back to Tabwise
+      </TextLink>
+    </main>
+  </div>
+</Layout>
