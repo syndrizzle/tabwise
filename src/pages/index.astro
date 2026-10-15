@@ -9,9 +9,23 @@ import { tablets } from "@/lib/catalog"
 const title = "Student tablet finder in India, with or without a pen — Tabwise"
 const description =
   "Find a student tablet for notes, PDFs, lectures and reading. Compare dated India prices, with a pen or without."
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Tabwise",
+  url: new URL("/", Astro.site).href,
+  description,
+  inLanguage: "en-IN",
+}
 ---
 
 <Layout title={title} description={description}>
+  <script
+    is:inline
+    slot="head"
+    type="application/ld+json"
+    set:html={JSON.stringify(structuredData)}
+  ></script>
   <a
     href="#main"
     class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-lg focus:bg-background focus:px-4 focus:py-2 focus:ring-2 focus:ring-ring"
