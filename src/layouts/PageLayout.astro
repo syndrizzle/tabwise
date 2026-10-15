@@ -1,0 +1,98 @@
+---
+import Layout from "@/layouts/main.astro"
+import Header from "@/components/Header.astro"
+import { TextLink } from "@/components/TextLink"
+
+interface Props {
+  title: string
+  description: string
+  width?: string
+}
+
+const { title, description, width = "max-w-3xl" } = Astro.props
+const links = [
+  { href: "/", label: "Finder" },
+  { href: "/tablets/", label: "Tablets" },
+  { href: "/about/", label: "How we choose" },
+]
+---
+
+<Layout title={title} description={description}>
+  <a
+    href="#main"
+    class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:bg-background focus:p-4"
+  >
+    Skip to content
+  </a>
+  <div class="mx-auto max-w-6xl px-6 sm:px-10">
+    <Header />
+    <nav
+      aria-label="Main navigation"
+      class="flex justify-center gap-6 text-sm text-muted-foreground"
+    >
+      {links.map((link) => (
+        <TextLink
+          href={link.href}
+          variant="ghost"
+        >
+          {link.label}
+        </TextLink>
+      ))}
+    </nav>
+    <main id="main" class:list={["mx-auto pt-14 pb-24 sm:pt-20", width]}>
+      <slot />
+    </main>
+  </div>
+</Layout>
+
+<style is:global>
+  .page-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+  }
+
+  .page-intro {
+    max-width: 42rem;
+    margin-top: 1.25rem;
+    color: var(--muted-foreground);
+    line-height: 1.8;
+  }
+
+  .prose-section {
+    margin-top: 3rem;
+  }
+
+  .prose-section h2 {
+    margin-bottom: 0.85rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  .prose-section p,
+  .prose-section li {
+    color: var(--muted-foreground);
+    line-height: 1.85;
+  }
+
+  .prose-section p + p {
+    margin-top: 1rem;
+  }
+
+  .prose-section ol,
+  .prose-section ul {
+    display: grid;
+    gap: 0.75rem;
+    padding-left: 1.25rem;
+  }
+
+  .prose-section ol {
+    list-style: decimal;
+  }
+
+  .prose-section ul {
+    list-style: disc outside;
+  }
+</style>

@@ -1,0 +1,209 @@
+---
+import PageLayout from "@/layouts/PageLayout.astro"
+import { Separator } from "@/components/ui/separator"
+import { OfferCost } from "@/components/OfferCost"
+import { TextLink } from "@/components/TextLink"
+import { ReviewEvidence } from "@/components/ReviewEvidence"
+import { formatInr } from "@/lib/finder"
+import {
+  cheapestOffer,
+  formatLongDate,
+  priceDates,
+  tablets,
+} from "@/lib/catalog"
+
+const catalog = tablets
+  .map((tablet) => ({ tablet, offer: cheapestOffer(tablet) }))
+  .sort(
+    (a, b) =>
+      a.offer.purchasePriceInr - b.offer.purchasePriceInr ||
+      a.tablet.id.localeCompare(b.tablet.id)
+  )
+
+const dates = priceDates()
+const [firstDate, lastDate] = [dates[0], dates.at(-1)!]
+const priceRange =
+  firstDate === lastDate
+    ? formatLongDate(lastDate)
+    : `${new Date(`${firstDate}T00:00:00Z`).getUTCDate()}–${formatLongDate(lastDate)}`
+---
+
+<PageLayout
+  title="Student tablets in India, with or without a pen — Tabwise catalog"
+  description="Compare student tablets in India with dated purchase prices, verified pen options, tradeoffs and sources."
+  width="max-w-5xl"
+>
+  <h1 class="page-heading">Student tablets, with the costs clear.</h1>
+  <p class="page-intro">
+    {tablets.length} models have a documented new-India purchase offer. Use them
+    for reading, PDFs, lectures or typed work; verified pen setups are labelled
+    separately. Prices are dated observations from {priceRange}, not live
+    offers.
+  </p>
+  <p class="mt-5 text-sm">
+    <TextLink href="/" icon="forward">
+      Find my tablet
+    </TextLink>
+    <span class="mx-3 text-muted-foreground">·</span>
+    <TextLink href="/about/">How we choose</TextLink>
+  </p>
+
+  <div class="catalog-list">
+    {
+      catalog.map(({ tablet, offer }) => (
+        <article id={tablet.id}>
+          <Separator />
+          <div class="py-8">
+            <div class="product-heading">
+              <div>
+                <p class="brand">{tablet.brand}</p>
+                <h2>{tablet.name}</h2>
+                <p class="specs">
+                  {tablet.screenInches.toFixed(1)}″ screen · {tablet.weightLabel}{" "}
+                  · {tablet.platform === "ipados" ? "iPadOS" : "Android"}
+                </p>
+              </div>
+              <div class="price">
+                <strong>{formatInr(offer.purchasePriceInr)}</strong>
+                <span>
+                  {offer.bundlePriceInr === null
+                    ? "purchase price"
+                    : "full priced bundle"}
+                </span>
+              </div>
+            </div>
+            <p class="variant">
+              {offer.ramGb === null ? "" : `${offer.ramGb}GB RAM · `}
+              {offer.storageGb}GB · {offer.connectivity}
+            </p>
+            <div class="mt-3 max-w-md text-xs leading-relaxed">
+              <OfferCost
+                offer={offer}
+                pen={offer.eligibility.later ? "later" : "none"}
+              />
+            </div>
+            <p class="cost">
+              {offer.eligibility.now
+                ? `Verified pen setup: ${offer.penName}; ${formatInr(offer.totalInr!)} together at the reference prices.`
+                : "Tablet purchase only: no complete named active-pen setup verified for this offer."}
+            </p>
+            {tablet.penCaveat && <p class="reference">{tablet.penCaveat}</p>}
+            <p class="tradeoff">{tablet.tradeoff}</p>
+            <p class="reference">
+              Reference price:{" "}
+              <time datetime={offer.priceDate}>
+                {formatLongDate(offer.priceDate)}
+              </time>
+              . Current stock and local delivery need checking.
+            </p>
+            <div class="sources">
+              <TextLink href={tablet.productUrl} external>
+                Official specifications
+              </TextLink>
+              <TextLink href={offer.priceUrl} external
+                >{offer.bundlePriceInr === null ? "Tablet" : "Bundle"} price source{" "}
+              </TextLink>
+              {offer.eligibility.now &&
+                !offer.penIncluded &&
+                offer.penPriceUrl && (
+                  <TextLink href={offer.penPriceUrl} external>
+                    Pen price source
+                  </TextLink>
+                )}
+            </div>
+            <ReviewEvidence
+              client:visible={{ rootMargin: "200px" }}
+              notes={tablet.reviewNotes}
+              title="Review evidence and conditions"
+            />
+          </div>
+        </article>
+      ))
+    }
+  </div>
+
+</PageLayout>
+
+<style>
+  .catalog-list {
+    margin-top: 3rem;
+  }
+
+  .product-heading {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+
+  .brand,
+  .reference {
+    color: var(--muted-foreground);
+    font-size: 0.75rem;
+    line-height: 1.7;
+  }
+
+  h2 {
+    margin: 0.25rem 0;
+    font-size: 1.35rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  .specs,
+  .variant,
+  .cost,
+  .tradeoff {
+    font-size: 0.875rem;
+    line-height: 1.8;
+  }
+
+  .specs,
+  .variant {
+    color: var(--muted-foreground);
+  }
+
+  .variant {
+    margin-top: 1rem;
+  }
+
+  .price {
+    max-width: 16rem;
+    text-align: right;
+  }
+
+  .price strong {
+    display: block;
+    font-size: 1.5rem;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.03em;
+  }
+
+  .price span {
+    color: var(--muted-foreground);
+    font-size: 0.75rem;
+  }
+
+  .tradeoff {
+    margin: 0.75rem 0;
+  }
+
+  .sources {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.25rem;
+    margin: 0.85rem 0;
+    font-size: 0.8125rem;
+  }
+
+  @media (max-width: 520px) {
+    .product-heading {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .price {
+      max-width: none;
+      text-align: left;
+    }
+  }
+</style>
