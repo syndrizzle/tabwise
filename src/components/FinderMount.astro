@@ -1,0 +1,17 @@
+---
+import type { Tablet } from "@/lib/catalog"
+
+interface Props {
+  tablets: Tablet[]
+}
+
+const { tablets } = Astro.props
+---
+
+<div id="tablet-finder" class="w-full"></div>
+<script
+  id="finder-data"
+  type="application/json"
+  is:inline
+  set:html={JSON.stringify(tablets)}
+></script>
