@@ -1,0 +1,133 @@
+---
+import PageLayout from "@/layouts/PageLayout.astro"
+import { TextLink } from "@/components/TextLink"
+import {
+  formatLongDate,
+  hasVerifiedPen,
+  priceDates,
+  tablets,
+} from "@/lib/catalog"
+
+const researched = tablets.length
+const withPen = tablets.filter(hasVerifiedPen).length
+const checkedOn = priceDates().at(-1)!
+---
+
+<PageLayout
+  title="About Tabwise — How we choose student tablets"
+  description="See how Tabwise chooses student tablets using pen compatibility, palm rejection, complete costs and sourced evidence."
+  width="max-w-2xl"
+>
+  <h1 class="page-heading">A little clarity before you buy.</h1>
+  <p class="page-intro">
+    Tabwise helps students in India find new tablets for notes, PDFs, reading,
+    lectures and light typed work—with a pen or without. It is a student subject
+    project, built around a curated, sourced catalog.
+  </p>
+
+  <section class="prose-section">
+    <h2>Start with the complete cost</h2>
+    <p>
+      Buying a pen now counts the exact tablet and its named compatible active
+      pen together. Buying a pen later checks that same verified setup, but
+      shows a separate pen’s dated cost outside today’s tablet budget. If a
+      verified pen is already included, the full purchase price still counts.
+      Future accessory prices and stock can change.
+    </p>
+    <p>
+      Prices are dated reference observations in INR. They exclude card offers
+      and trade-ins, and do not guarantee current stock or delivery to your
+      postcode. Check the seller before buying.
+    </p>
+    <p>
+      Without a pen, only the listed tablet purchase is required. An unavoidable
+      bundle is still counted in full, never split into invented component
+      prices. Tablet-only eligibility does not establish pen compatibility. An
+      unspecified bundled accessory or a generic capacitive stylus is not a
+      verified handwriting setup.
+    </p>
+  </section>
+
+  <section class="prose-section">
+    <h2>How the finder chooses</h2>
+    <ol>
+      <li>
+        Keep exact new-India configurations with a documented listed purchase
+        price. Exclude unavailable and historical-only offers. For a pen now or
+        later, also require a named compatible active pen, documented palm
+        rejection and a complete setup cost. Unknown or conflicting pen evidence
+        can qualify only for a tablet-only purchase.
+      </li>
+      <li>
+        Filter by the appropriate budget, required platform and any relevant
+        optional mobile-data, built-in storage and pen-pressure requirements.
+        Select the cheapest qualifying configuration per model. Full Windows or
+        macOS desktop software is outside this Android/iPadOS catalog.
+      </li>
+      <li>
+        Order the remaining tablets by your screen-space or portability
+        preference and main study use, giving the optional secondary use less
+        influence. Show up to three distinct models, with lower cost breaking
+        ties.
+      </li>
+    </ol>
+    <p class="mt-4">
+      A roomy screen means at least 12 inches. A lighter tablet means its listed
+      upper weight is at most 525g, excluding the case and pen. PDFs favor
+      roomier screens; diagrams also favor documented pen pressure sensitivity.
+      Notes favor a verified bundled pen and a lighter tablet. Reading favors
+      lower weight; lectures favor screens of at least 11 inches. Typed work
+      favors screen space and documented RAM of 8GB or more. These are simple
+      preference rules, not claims of measured app performance. Your size
+      preference has the strongest priority.
+    </p>
+    <p>
+      If no purchase fits, we show the minimum for the same requirements when
+      one exists, or explain that the catalog has no verified match. We never
+      silently increase the budget or relax a hard requirement. Size is a soft
+      preference: any smaller or heavier fallback is labelled. The finder asks
+      five core questions and a sixth essentials question only when relevant;
+      editing answers clears hidden follow-up filters.
+    </p>
+  </section>
+
+  <section class="prose-section">
+    <h2>Where the information comes from</h2>
+    <p>
+      Our research covers {researched} models across Apple, Samsung,
+      Xiaomi/Redmi, OnePlus, Motorola and Lenovo. {tablets.length} have a
+      current documented purchase offer; {withPen} also have a qualifying
+      verified pen setup. Manufacturer documentation supplies specifications and
+      compatibility; retailers supply dated prices and availability
+      observations; independent reviewers supply attributed usage observations.
+    </p>
+    <p>
+      We have not tested the tablets firsthand. A review of one pen, app or
+      regional variant does not establish how every other combination behaves.
+      Results identify those conditions and link to their sources. Unknown
+      information stays unknown.
+    </p>
+    <p>
+      These are documentation-based preference rules, not trained machine
+      learning or objective product-quality scores. Battery capacity alone is
+      not treated as measured battery life.
+    </p>
+  </section>
+
+  <section class="prose-section">
+    <h2>What is stored</h2>
+    <p>
+      The catalog is prepared before publication. Your answers are processed in
+      your browser; Tabwise does not save or send them to a server. Theme
+      preference is saved on your device. Product images load from manufacturer
+      websites, and purchase links open the relevant external seller.
+    </p>
+    <p>
+      The latest research batch was checked on{" "}
+      <time datetime={checkedOn}>{formatLongDate(checkedOn)}</time>; individual
+      price dates remain visible.{" "}
+      <TextLink href="/tablets/">Browse the tablets and source notes</TextLink>,
+      or <TextLink href="/">start the finder</TextLink>.
+    </p>
+  </section>
+</PageLayout>
