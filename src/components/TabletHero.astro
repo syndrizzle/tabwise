@@ -1,0 +1,248 @@
+---
+import hero from "@/assets/tablet-hero.svg?raw"
+---
+
+<div class="tablet-hero" aria-hidden="true" set:html={hero} />
+
+<style>
+  .tablet-hero {
+    width: min(26rem, 100%);
+    aspect-ratio: 30 / 17;
+    margin-bottom: 1.25rem;
+    pointer-events: none;
+    --anatomy-paper: #c1c9cc;
+    --anatomy-top: #dfe5e7;
+    --anatomy-shade-0: #879397;
+    --anatomy-shade-1: #9ba6ab;
+    --anatomy-shade-2: #b2bdc1;
+    --anatomy-shade-3: #c9d2d5;
+    --anatomy-hi: #586971;
+    --anatomy-mid: #74868c;
+    --anatomy-lo: #a7b2b6;
+    --anatomy-faint: #d7e0e2;
+    --anatomy-dot: #edf3f5;
+    --hero-glass: #26343b;
+    --hero-gasket: #3c4c53;
+    --hero-paper: #fbfdfd;
+    --hero-toolbar: #edf2f3;
+    --hero-grid: #c2cfd3;
+    --hero-ink: #355762;
+    --hero-pencil: #738a92;
+    --hero-tool: #dbe6e9;
+    --hero-shadow: #38505c;
+    --hero-shadow-opacity: 0.14;
+    --hero-pen-top: #f5f7f7;
+    --hero-pen-fill: #e1e8ea;
+    --hero-nib-top: #71858f;
+    --hero-nib-fill: #384c55;
+    --hero-recess-fill: #37474e;
+    --hero-recess-edge: #74868e;
+    --hero-port: #b4c0c6;
+    --hero-contact: #e0e8eb;
+    --hero-camera: #0c181e;
+    --hero-camera-edge: #667c86;
+    --hero-lens: #344f5c;
+  }
+
+  :global(.dark) .tablet-hero {
+    --anatomy-paper: #36454d;
+    --anatomy-top: #5e707a;
+    --anatomy-shade-0: #222d33;
+    --anatomy-shade-1: #2f3c44;
+    --anatomy-shade-2: #3e4f58;
+    --anatomy-shade-3: #4e626c;
+    --anatomy-hi: #d8e4e8;
+    --anatomy-mid: #8b9ea7;
+    --anatomy-lo: #647a85;
+    --anatomy-faint: #35484f;
+    --hero-glass: #142025;
+    --hero-gasket: #53636d;
+    --hero-paper: #1d2a30;
+    --hero-toolbar: #25363d;
+    --hero-grid: #3c515b;
+    --hero-ink: #d0e2e7;
+    --hero-pencil: #8aa4af;
+    --hero-tool: #415b65;
+    --hero-shadow: #000;
+    --hero-shadow-opacity: 0.4;
+  }
+
+  .tablet-hero :global(svg) {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+
+  .tablet-hero :global(.iso-fill) {
+    fill: var(--anatomy-paper);
+  }
+
+  .tablet-hero :global(.iso-top) {
+    fill: var(--anatomy-top);
+  }
+
+  .tablet-hero :global(.iso-shade[data-shade="0"]) {
+    fill: var(--anatomy-shade-0);
+  }
+
+  .tablet-hero :global(.iso-shade[data-shade="1"]) {
+    fill: var(--anatomy-shade-1);
+  }
+
+  .tablet-hero :global(.iso-shade[data-shade="2"]) {
+    fill: var(--anatomy-shade-2);
+  }
+
+  .tablet-hero :global(.iso-shade[data-shade="3"]) {
+    fill: var(--anatomy-shade-3);
+  }
+
+  .tablet-hero :global(.iso-line) {
+    fill: none;
+    stroke: var(--anatomy-lo);
+    stroke-width: 0.65;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .tablet-hero :global(.iso-line[data-tone="hi"]) {
+    stroke: var(--anatomy-hi);
+  }
+
+  .tablet-hero :global(.iso-line[data-tone="mid"]) {
+    stroke: var(--anatomy-mid);
+  }
+
+  .tablet-hero :global(.iso-line[data-tone="faint"]) {
+    stroke: var(--anatomy-faint);
+  }
+
+  .tablet-hero :global(.hero-gasket) {
+    --anatomy-top: var(--hero-gasket);
+  }
+
+  .tablet-hero :global(.hero-glass) {
+    --anatomy-top: var(--hero-glass);
+  }
+
+  .tablet-hero :global(.hero-rim) {
+    --anatomy-top: var(--anatomy-shade-3);
+  }
+
+  .tablet-hero :global(.hero-pen) {
+    --anatomy-top: var(--hero-pen-top);
+    --anatomy-paper: var(--hero-pen-fill);
+  }
+
+  .tablet-hero :global(.hero-nib) {
+    --anatomy-top: var(--hero-nib-top);
+    --anatomy-paper: var(--hero-nib-fill);
+  }
+
+  .tablet-hero :global(.hero-paper) {
+    fill: var(--hero-paper);
+  }
+
+  .tablet-hero :global(.hero-toolbar) {
+    fill: var(--hero-toolbar);
+  }
+
+  .tablet-hero :global(.hero-paper-dot) {
+    fill: var(--hero-grid);
+  }
+
+  .tablet-hero :global(.hero-tool-selected) {
+    fill: var(--hero-tool);
+  }
+
+  .tablet-hero :global(.hero-ui-dot) {
+    fill: var(--hero-pencil);
+  }
+
+  .tablet-hero :global(.hero-recess) {
+    fill: var(--hero-recess-fill);
+    stroke: var(--hero-recess-edge);
+    stroke-width: 0.3;
+  }
+
+  .tablet-hero :global(.hero-port-tongue) {
+    fill: var(--hero-port);
+  }
+
+  .tablet-hero :global(.hero-contact) {
+    fill: var(--hero-contact);
+  }
+
+  .tablet-hero :global(.hero-camera) {
+    fill: var(--hero-camera);
+    stroke: var(--hero-camera-edge);
+    stroke-width: 0.3;
+  }
+
+  .tablet-hero :global(.hero-lens) {
+    fill: var(--hero-lens);
+  }
+
+  .tablet-hero :global(.iso-dots) {
+    fill: var(--anatomy-dot);
+  }
+
+  .tablet-hero :global(.hero-heading-ink) {
+    stroke: var(--hero-ink);
+    stroke-width: 1.8;
+  }
+
+  .tablet-hero :global(.hero-writing) {
+    stroke: var(--hero-pencil);
+    stroke-width: 1.1;
+  }
+
+  .tablet-hero :global(.hero-check) {
+    stroke: var(--hero-ink);
+    stroke-width: 1.3;
+  }
+
+  .tablet-hero :global(.hero-checkbox) {
+    stroke: var(--hero-pencil);
+    stroke-width: 0.65;
+  }
+
+  .tablet-hero :global(.hero-underline) {
+    stroke: var(--hero-ink);
+    stroke-width: 1.6;
+    opacity: 0.38;
+  }
+
+  .tablet-hero :global(.hero-diagram) {
+    stroke: var(--hero-ink);
+    stroke-width: 1.05;
+  }
+
+  .tablet-hero :global(.hero-diagram-faint) {
+    stroke: var(--hero-pencil);
+    stroke-width: 0.6;
+  }
+
+  .tablet-hero :global(.hero-vertex) {
+    fill: var(--hero-ink);
+  }
+
+  .tablet-hero :global(.hero-home-indicator) {
+    fill: var(--hero-pencil);
+    opacity: 0.55;
+  }
+
+  .tablet-hero :global(.hero-shadow) {
+    fill: var(--hero-shadow);
+    opacity: var(--hero-shadow-opacity);
+    filter: blur(9px);
+  }
+
+  .tablet-hero :global(.hero-pen-shadow) {
+    fill: var(--hero-shadow);
+    opacity: var(--hero-shadow-opacity);
+    filter: blur(3px);
+  }
+
+</style>

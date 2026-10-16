@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/main.astro"
 import Header from "@/components/Header.astro"
+import TabletHero from "@/components/TabletHero.astro"
 import { FinderLauncher } from "@/components/FinderLauncher"
 import { TextLink } from "@/components/TextLink"
 import FinderMount from "@/components/FinderMount.astro"
@@ -40,6 +41,7 @@ const structuredData = {
       class="flex flex-1 flex-col items-center justify-center pt-4 pb-10 text-center sm:pb-12"
     >
       <section id="home-hero" class="flex flex-col items-center">
+        <TabletHero />
         <p class="mb-4 text-sm font-medium text-primary dark:text-foreground">
           Student tablets, simplified.
         </p>
