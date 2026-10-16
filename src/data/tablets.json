@@ -103,6 +103,104 @@
     ]
   },
   {
+    "id": "apple-ipad-air-11-m4",
+    "name": "iPad Air 11-inch (M4)",
+    "brand": "Apple",
+    "platform": "ipados",
+    "screenInches": 11,
+    "weightUpperGrams": 464,
+    "weightLabel": "Approx. 464g",
+    "image": {
+      "url": "https://www.apple.com/v/ipad-air/specs/e/images/specs/display_11_inch__hsg1e33igxme_small.jpg",
+      "width": 119,
+      "height": 164,
+      "alt": "iPad Air 11-inch (M4)",
+      "sourceUrl": "https://www.apple.com/in/ipad-air/specs/",
+      "checkedAt": "2026-10-16T10:32:43.379Z",
+      "contentType": "image/jpeg",
+      "cacheControl": "max-age=3600",
+      "contentBytes": 1664
+    },
+    "offers": [
+      {
+        "id": "128-wifi-20261016",
+        "ramGb": 12,
+        "storageGb": 128,
+        "connectivity": "Wi-Fi",
+        "purchasePriceInr": 89900,
+        "totalInr": 97800,
+        "eligibility": {
+          "none": true,
+          "now": true,
+          "later": true
+        },
+        "tabletPriceInr": 89900,
+        "bundlePriceInr": null,
+        "penPriceInr": 7900,
+        "penName": "Apple Pencil (USB-C)",
+        "penIncluded": false,
+        "pressureSensitive": false,
+        "priceDate": "2026-10-16",
+        "availability": "unknown",
+        "priceUrl": "https://www.apple.com/in/shop/buy-ipad/ipad-air",
+        "penPriceUrl": "https://www.apple.com/in/shop/product/muwa3zm/a/apple-pencil-usb-c"
+      }
+    ],
+    "productUrl": "https://www.apple.com/in/ipad-air/specs/",
+    "tradeoff": "A premium-priced iPad; its priced USB-C Pencil lacks pressure sensitivity. Pencil Pro is compatible but not priced in this catalog.",
+    "penCaveat": null,
+    "reviewNotes": []
+  },
+  {
+    "id": "apple-ipad-mini-a17-pro",
+    "name": "iPad mini (A17 Pro)",
+    "brand": "Apple",
+    "platform": "ipados",
+    "screenInches": 8.3,
+    "weightUpperGrams": 293,
+    "weightLabel": "Approx. 293g",
+    "image": {
+      "url": "https://www.apple.com/v/ipad-mini/specs/d/images/meta/ipad-mini_specs__0r034kjtwn62_og.png?202609040207",
+      "width": 1200,
+      "height": 630,
+      "alt": "iPad mini (A17 Pro)",
+      "sourceUrl": "https://www.apple.com/in/ipad-mini/specs/",
+      "checkedAt": "2026-10-16T10:29:13.902Z",
+      "contentType": "image/png",
+      "cacheControl": "max-age=3600",
+      "contentBytes": 52423
+    },
+    "offers": [
+      {
+        "id": "128-wifi-20261016",
+        "ramGb": null,
+        "storageGb": 128,
+        "connectivity": "Wi-Fi",
+        "purchasePriceInr": 69900,
+        "totalInr": 77800,
+        "eligibility": {
+          "none": true,
+          "now": true,
+          "later": true
+        },
+        "tabletPriceInr": 69900,
+        "bundlePriceInr": null,
+        "penPriceInr": 7900,
+        "penName": "Apple Pencil (USB-C)",
+        "penIncluded": false,
+        "pressureSensitive": false,
+        "priceDate": "2026-10-16",
+        "availability": "unknown",
+        "priceUrl": "https://www.apple.com/in/shop/buy-ipad/ipad-mini/128gb-space-grey-wifi",
+        "penPriceUrl": "https://www.apple.com/in/shop/product/muwa3zm/a/apple-pencil-usb-c"
+      }
+    ],
+    "productUrl": "https://www.apple.com/in/ipad-mini/specs/",
+    "tradeoff": "The 8.3-inch screen is compact for full-page PDFs. The priced USB-C Pencil has no pressure sensitivity.",
+    "penCaveat": null,
+    "reviewNotes": []
+  },
+  {
     "id": "lenovo-idea-tab",
     "name": "Idea Tab",
     "brand": "Lenovo",
@@ -188,6 +286,55 @@
         "title": "Lenovo Idea Tab Review: How Good Is It, Really?"
       }
     ]
+  },
+  {
+    "id": "lenovo-idea-tab-plus",
+    "name": "Idea Tab Plus",
+    "brand": "Lenovo",
+    "platform": "android",
+    "screenInches": 12.1,
+    "weightUpperGrams": 530,
+    "weightLabel": "Approx. 530g",
+    "image": {
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/Lenovo_Tablets/Idea_Tab_Plus/Idea_Tab_Plus_OverViewPic.jpg",
+      "width": 1280,
+      "height": 720,
+      "alt": "Idea Tab Plus",
+      "sourceUrl": "https://psref.lenovo.com/syspool/Sys/PDF/Lenovo_Tablets/Idea_Tab_Plus/Idea_Tab_Plus_Spec.html",
+      "checkedAt": "2026-10-16T10:29:24.069Z",
+      "contentType": "image/jpeg",
+      "cacheControl": "private, no-transform, max-age=1800",
+      "contentBytes": 51927
+    },
+    "offers": [
+      {
+        "id": "12-256-wifi-unknown-pen",
+        "ramGb": 12,
+        "storageGb": 256,
+        "connectivity": "Wi-Fi",
+        "purchasePriceInr": 29999,
+        "totalInr": null,
+        "eligibility": {
+          "none": true,
+          "now": false,
+          "later": false
+        },
+        "tabletPriceInr": null,
+        "bundlePriceInr": 29999,
+        "penPriceInr": 0,
+        "penName": null,
+        "penIncluded": true,
+        "pressureSensitive": null,
+        "priceDate": "2026-10-16",
+        "availability": "in-stock",
+        "priceUrl": "https://www.reliancedigital.in/product/lenovo-idea-tab-plus-3073-cm-121-inch-wifi-tablet-with-pen-256-gb-12-gb-ram-cloud-grey-zag70923in-mjh6m2-9701115",
+        "penPriceUrl": null
+      }
+    ],
+    "productUrl": "https://psref.lenovo.com/syspool/Sys/PDF/Lenovo_Tablets/Idea_Tab_Plus/Idea_Tab_Plus_Spec.html",
+    "tradeoff": "The retailer bundles an unspecified pen. The tablet purchase is priced, but that accessory is not treated as a verified handwriting setup.",
+    "penCaveat": "No complete named active-pen setup is verified for this offer. Do not assume a generic or unidentified bundled pen supports handwriting with palm rejection.",
+    "reviewNotes": []
   },
   {
     "id": "lenovo-idea-tab-pro",
@@ -469,6 +616,55 @@
     ]
   },
   {
+    "id": "oneplus-pad-lite",
+    "name": "OnePlus Pad Lite",
+    "brand": "OnePlus",
+    "platform": "android",
+    "screenInches": 11,
+    "weightUpperGrams": 530,
+    "weightLabel": "Approx. 530g",
+    "image": {
+      "url": "https://www.oneplus.in/content/dam/oneplus/2025/specs/pad-lite/images/Aero_Blue.png",
+      "width": 1080,
+      "height": 1080,
+      "alt": "OnePlus Pad Lite",
+      "sourceUrl": "https://www.oneplus.in/oneplus-pad-lite/specs",
+      "checkedAt": "2026-10-16T10:29:18.680Z",
+      "contentType": "image/png",
+      "cacheControl": "max-age=2592000",
+      "contentBytes": 184896
+    },
+    "offers": [
+      {
+        "id": "6-128-wifi-reliance",
+        "ramGb": 6,
+        "storageGb": 128,
+        "connectivity": "Wi-Fi",
+        "purchasePriceInr": 19999,
+        "totalInr": null,
+        "eligibility": {
+          "none": true,
+          "now": false,
+          "later": false
+        },
+        "tabletPriceInr": 19999,
+        "bundlePriceInr": null,
+        "penPriceInr": null,
+        "penName": null,
+        "penIncluded": false,
+        "pressureSensitive": null,
+        "priceDate": "2026-10-16",
+        "availability": "in-stock",
+        "priceUrl": "https://www.reliancedigital.in/product/oneplus-pad-lite-2794-cm-11-inch-wi-fi-tablet-128-gb-6-gb-ram-aero-blue-opd2480-mdohwt-9303690",
+        "penPriceUrl": null
+      }
+    ],
+    "productUrl": "https://www.oneplus.in/oneplus-pad-lite/specs",
+    "tradeoff": "An 11-inch 1920 × 1200 screen and 530g listed weight. No compatible active-pen setup has been verified in this catalog.",
+    "penCaveat": "No complete named active-pen setup is verified for this offer. Do not assume a generic or unidentified bundled pen supports handwriting with palm rejection.",
+    "reviewNotes": []
+  },
+  {
     "id": "redmi-pad-2",
     "name": "Redmi Pad 2",
     "brand": "Xiaomi",
@@ -666,6 +862,154 @@
         "title": "Review Redmi Pad 2 Pro: Tablet Terlengkap dan Terbaik Redmi di 2025! • Jagat Gadget"
       }
     ]
+  },
+  {
+    "id": "redmi-pad-se-4g",
+    "name": "Redmi Pad SE 4G",
+    "brand": "Xiaomi",
+    "platform": "android",
+    "screenInches": 8.7,
+    "weightUpperGrams": null,
+    "weightLabel": "Weight not verified",
+    "image": {
+      "url": "https://i03.appmifile.com/843_item_in/20/09/2024/55ed7b968d526d3a52334dc6df0c6c89.png?f=webp",
+      "width": 800,
+      "height": 800,
+      "alt": "Redmi Pad SE 4G",
+      "sourceUrl": "https://www.mi.com/in/product/redmi-pad-se-4g/specs/",
+      "checkedAt": "2026-10-16T10:27:26.233Z",
+      "contentType": "image/webp",
+      "cacheControl": "max-age=10368000",
+      "contentBytes": 28876,
+      "originalUrl": "https://i03.appmifile.com/843_item_in/20/09/2024/55ed7b968d526d3a52334dc6df0c6c89.png"
+    },
+    "offers": [
+      {
+        "id": "4-128-4g-reliance",
+        "ramGb": 4,
+        "storageGb": 128,
+        "connectivity": "Wi-Fi + 4G",
+        "purchasePriceInr": 11999,
+        "totalInr": null,
+        "eligibility": {
+          "none": true,
+          "now": false,
+          "later": false
+        },
+        "tabletPriceInr": 11999,
+        "bundlePriceInr": null,
+        "penPriceInr": null,
+        "penName": null,
+        "penIncluded": false,
+        "pressureSensitive": null,
+        "priceDate": "2026-10-16",
+        "availability": "in-stock",
+        "priceUrl": "https://www.reliancedigital.in/product/redmi-pad-se-2209-cm-87-inch-tablet-4-gb-ram-128-gb-grey-vhu4939in-m10e2q-8593525",
+        "penPriceUrl": null
+      }
+    ],
+    "productUrl": "https://www.mi.com/in/product/redmi-pad-se-4g/specs/",
+    "tradeoff": "The 8.7-inch screen is small for full-page PDFs. Retailer hardware copy conflicts with manufacturer specs, so only its price/variant is used; no active-pen setup is verified.",
+    "penCaveat": "No complete named active-pen setup is verified for this offer. Do not assume a generic or unidentified bundled pen supports handwriting with palm rejection.",
+    "reviewNotes": []
+  },
+  {
+    "id": "samsung-galaxy-tab-a11-plus",
+    "name": "Galaxy Tab A11+",
+    "brand": "Samsung",
+    "platform": "android",
+    "screenInches": 10.95,
+    "weightUpperGrams": 482,
+    "weightLabel": "Approx. 482g",
+    "image": {
+      "url": "https://images.samsung.com/is/image/samsung/p6pim/in/feature/166754856/in-feature-galaxy-tab-a-550039243?$FB_TYPE_A_JPG$",
+      "width": 1440,
+      "height": 822,
+      "alt": "Galaxy Tab A11+",
+      "sourceUrl": "https://www.samsung.com/in/tablets/galaxy-tab-a/galaxy-tab-a11-plus-gray-128gb-sm-x236bzaains/",
+      "checkedAt": "2026-10-16T10:32:45.916Z",
+      "contentType": "image/jpeg",
+      "cacheControl": "private, no-transform, max-age=3600",
+      "contentBytes": 136330
+    },
+    "offers": [
+      {
+        "id": "6-128-5g-samsung",
+        "ramGb": 6,
+        "storageGb": 128,
+        "connectivity": "Wi-Fi + 5G",
+        "purchasePriceInr": 31999,
+        "totalInr": null,
+        "eligibility": {
+          "none": true,
+          "now": false,
+          "later": false
+        },
+        "tabletPriceInr": 31999,
+        "bundlePriceInr": null,
+        "penPriceInr": null,
+        "penName": null,
+        "penIncluded": false,
+        "pressureSensitive": null,
+        "priceDate": "2026-10-16",
+        "availability": "in-stock",
+        "priceUrl": "https://www.samsung.com/in/tablets/galaxy-tab-a/galaxy-tab-a11-plus-gray-128gb-sm-x236bzaains/",
+        "penPriceUrl": null
+      }
+    ],
+    "productUrl": "https://www.samsung.com/in/tablets/galaxy-tab-a/galaxy-tab-a11-plus-gray-128gb-sm-x236bzaains/",
+    "tradeoff": "This observed offer is the 5G model; no verified active-pen setup in this catalog.",
+    "penCaveat": "No complete named active-pen setup is verified for this offer. Do not assume a generic or unidentified bundled pen supports handwriting with palm rejection.",
+    "reviewNotes": []
+  },
+  {
+    "id": "samsung-galaxy-tab-a9",
+    "name": "Galaxy Tab A9",
+    "brand": "Samsung",
+    "platform": "android",
+    "screenInches": 8.68,
+    "weightUpperGrams": 332,
+    "weightLabel": "Approx. 332g",
+    "image": {
+      "url": "https://images.samsung.com/is/image/samsung/p6pim/in/sm-x110nzaains/gallery/in-galaxy-tab-a9-sm-x110-sm-x110nzaains-thumb-538450543",
+      "width": 330,
+      "height": 330,
+      "alt": "Galaxy Tab A9",
+      "sourceUrl": "https://www.samsung.com/in/tablets/galaxy-tab-a/galaxy-tab-a9-wifi-graphite-64gb-sm-x110nzaains/",
+      "checkedAt": "2026-10-16T10:32:45.557Z",
+      "contentType": "image/png",
+      "cacheControl": "private, no-transform, max-age=3600",
+      "contentBytes": 52856
+    },
+    "offers": [
+      {
+        "id": "4-64-wifi-reliance",
+        "ramGb": 4,
+        "storageGb": 64,
+        "connectivity": "Wi-Fi",
+        "purchasePriceInr": 11999,
+        "totalInr": null,
+        "eligibility": {
+          "none": true,
+          "now": false,
+          "later": false
+        },
+        "tabletPriceInr": 11999,
+        "bundlePriceInr": null,
+        "penPriceInr": null,
+        "penName": null,
+        "penIncluded": false,
+        "pressureSensitive": null,
+        "priceDate": "2026-10-16",
+        "availability": "in-stock",
+        "priceUrl": "https://www.reliancedigital.in/product/samsung-galaxy-2209-cm-87-inch-wi-fi-only-tablet-64-gb-4-gb-gray-tab-a9-x110na2023-lnu0gd-7534494",
+        "penPriceUrl": null
+      }
+    ],
+    "productUrl": "https://www.samsung.com/in/tablets/galaxy-tab-a/galaxy-tab-a9-wifi-graphite-64gb-sm-x110nzaains/",
+    "tradeoff": "A small 8.7-inch-class screen with 1340 × 800 resolution; no verified active-pen setup in this catalog.",
+    "penCaveat": "No complete named active-pen setup is verified for this offer. Do not assume a generic or unidentified bundled pen supports handwriting with palm rejection.",
+    "reviewNotes": []
   },
   {
     "id": "samsung-galaxy-tab-s10-fe",

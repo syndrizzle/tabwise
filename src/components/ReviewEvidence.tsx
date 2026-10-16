@@ -18,6 +18,13 @@ export function ReviewEvidence({
           Documentation-based guidance; we haven’t tested these tablets
           ourselves.
         </p>
+        {!notes.length && (
+          <p className="text-muted-foreground">
+            No independent usage review has been collected for this model.
+            Guidance here is based on the cited specifications, compatibility
+            and price documentation.
+          </p>
+        )}
         {productUrl && (
           <TextLink href={productUrl} external size="xs">
             Manufacturer specifications

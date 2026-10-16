@@ -6,6 +6,7 @@ import { TextLink } from "@/components/TextLink"
 import { ReviewEvidence } from "@/components/ReviewEvidence"
 import { formatInr } from "@/lib/finder"
 import {
+  archive,
   cheapestOffer,
   formatLongDate,
   priceDates,
@@ -122,6 +123,24 @@ const priceRange =
     }
   </div>
 
+  <section class="prose-section">
+    <h2>Researched, but not currently purchase-ready</h2>
+    <p>
+      These {archive.length} records remain in the research archive, not the
+      active list. A model name or an old launch price is not a verified
+      purchase offer.
+    </p>
+    <ul class="mt-4">
+      {archive.map((model) => (
+        <li>
+          <TextLink href={model.url} external>
+            {`${model.brand} ${model.name}`}
+          </TextLink>
+          : {model.reason}
+        </li>
+      ))}
+    </ul>
+  </section>
 </PageLayout>
 
 <style>

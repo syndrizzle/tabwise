@@ -1,0 +1,44 @@
+[
+  {
+    "brand": "Motorola",
+    "name": "moto pad 60 PRO",
+    "url": "https://www.motorola.in/api/catalog_system/pub/products/search/moto-pad-60-pro/p",
+    "reason": "The observed offers were out of stock."
+  },
+  {
+    "brand": "OnePlus",
+    "name": "Pad 3",
+    "url": "https://www.oneplus.in/oneplus-pad-3/specs",
+    "reason": "Observed Reliance Digital configurations were unavailable online. Retained for research, not recommended for purchase."
+  },
+  {
+    "brand": "Xiaomi",
+    "name": "Redmi Pad SE",
+    "url": "https://www.mi.com/in/product/redmi-pad-se/specs/",
+    "reason": "Specifications verified; no current available exact India offer was verified in this pass. Not a purchase recommendation."
+  },
+  {
+    "brand": "Samsung",
+    "name": "Galaxy Tab A11",
+    "url": "https://www.samsung.com/in/tablets/galaxy-tab-a/galaxy-tab-a11-gray-64gb-sm-x133nzaains/",
+    "reason": "Manufacturer specs verified, but no current exact India offer price was established. Not a purchase recommendation."
+  },
+  {
+    "brand": "Samsung",
+    "name": "Galaxy Tab S10 FE+",
+    "url": "https://www.samsung.com/in/tablets/galaxy-tab-s/galaxy-tab-s10-fe-plus-blue-128gb-sm-x626blbains/",
+    "reason": "Manufacturer specs verified, but no current exact India offer price was established. Base S10 FE pen tests are not transferred to this larger model."
+  },
+  {
+    "brand": "Samsung",
+    "name": "Galaxy Tab S9 FE",
+    "url": "https://www.samsung.com/in/tablets/galaxy-tab-s/galaxy-tab-s9-fe-wifi-silver-128gb-sm-x510nzsainu/",
+    "reason": "Only historical prices were documented in this collection."
+  },
+  {
+    "brand": "Xiaomi",
+    "name": "Pad 6",
+    "url": "https://www.mi.com/in/product/xiaomi-pad-6/specs/",
+    "reason": "Only historical prices were documented in this collection."
+  }
+]

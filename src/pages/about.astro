@@ -2,13 +2,14 @@
 import PageLayout from "@/layouts/PageLayout.astro"
 import { TextLink } from "@/components/TextLink"
 import {
+  archive,
   formatLongDate,
   hasVerifiedPen,
   priceDates,
   tablets,
 } from "@/lib/catalog"
 
-const researched = tablets.length
+const researched = tablets.length + archive.length
 const withPen = tablets.filter(hasVerifiedPen).length
 const checkedOn = priceDates().at(-1)!
 ---
@@ -104,8 +105,10 @@ const checkedOn = priceDates().at(-1)!
     <p>
       We have not tested the tablets firsthand. A review of one pen, app or
       regional variant does not establish how every other combination behaves.
-      Results identify those conditions and link to their sources. Unknown
-      information stays unknown.
+      Results identify those conditions and link to their sources. Newly added
+      models without an independent usage review are explicitly labelled rather
+      than given invented review observations. Unknown information stays
+      unknown.
     </p>
     <p>
       These are documentation-based preference rules, not trained machine

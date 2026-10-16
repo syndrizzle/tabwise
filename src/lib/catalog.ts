@@ -1,3 +1,4 @@
+import archiveData from "@/data/archive.json"
 import tabletData from "@/data/tablets.json"
 
 export type Platform = "android" | "ipados"
@@ -61,7 +62,15 @@ export type Tablet = {
   reviewNotes: ReviewNote[]
 }
 
+export type ArchivedModel = {
+  brand: string
+  name: string
+  url: string
+  reason: string
+}
+
 export const tablets = tabletData as Tablet[]
+export const archive = archiveData as ArchivedModel[]
 
 export const cheapestOffer = (tablet: Tablet) =>
   [...tablet.offers].sort(
