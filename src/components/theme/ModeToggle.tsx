@@ -11,17 +11,16 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-
-type Theme = "light" | "dark" | "system"
+import { isTheme, themeEvents, type Theme } from "@/components/theme/theme"
 
 function subscribe(onChange: () => void) {
-  window.addEventListener("tabwise:theme-change", onChange)
-  return () => window.removeEventListener("tabwise:theme-change", onChange)
+  window.addEventListener(themeEvents.change, onChange)
+  return () => window.removeEventListener(themeEvents.change, onChange)
 }
 
 function getTheme(): Theme {
   const theme = document.documentElement.dataset.theme
-  return theme === "light" || theme === "dark" ? theme : "system"
+  return isTheme(theme) ? theme : "system"
 }
 
 function getServerTheme(): Theme {
@@ -29,11 +28,11 @@ function getServerTheme(): Theme {
 }
 
 function setTheme(value: string) {
-  if (value !== "light" && value !== "dark" && value !== "system") return
-  window.dispatchEvent(new CustomEvent("tabwise:set-theme", { detail: value }))
+  if (!isTheme(value)) return
+  window.dispatchEvent(new CustomEvent(themeEvents.set, { detail: value }))
 }
 
-const themes = [
+const themeOptions = [
   { value: "light", label: "Light", icon: Sun03Icon },
   { value: "dark", label: "Dark", icon: Moon02Icon },
   { value: "system", label: "System", icon: ComputerIcon },
@@ -41,7 +40,7 @@ const themes = [
 
 export function ModeToggle() {
   const theme = useSyncExternalStore(subscribe, getTheme, getServerTheme)
-  const icon = themes.find((option) => option.value === theme)!.icon
+  const icon = themeOptions.find((option) => option.value === theme)!.icon
 
   return (
     <DropdownMenu>
@@ -55,7 +54,7 @@ export function ModeToggle() {
       <DropdownMenuContent align="end">
         <DropdownMenuGroup>
           <DropdownMenuRadioGroup value={theme} onValueChange={setTheme}>
-            {themes.map((option) => (
+            {themeOptions.map((option) => (
               <DropdownMenuRadioItem
                 key={option.value}
                 value={option.value}

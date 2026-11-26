@@ -9,13 +9,14 @@ import { createPortal } from "react-dom"
 
 import { Button } from "@/components/ui/button"
 import { Alert, AlertDescription } from "@/components/ui/alert"
-import { defaultAnswers } from "@/lib/finder-defaults"
-import type { FinderPanelProps } from "@/components/FinderPanel"
-import type { Tablet } from "@/lib/catalog"
-import type { Answers } from "@/lib/finder"
+import { defaultAnswers } from "@/finder/defaults"
+import { pageIds, type FinderView } from "@/finder/page"
+import type { FinderPanelProps } from "@/finder/FinderPanel"
+import type { Tablet } from "@/catalog/catalog"
+import type { Answers } from "@/finder/rules"
 
 const subscribe = () => () => {}
-const getFinderRoot = () => document.getElementById("tablet-finder")
+const getFinderRoot = () => document.getElementById(pageIds.root)
 const getServerFinderRoot = () => null
 
 export function FinderLauncher() {
@@ -29,27 +30,26 @@ export function FinderLauncher() {
   )
   const [tablets, setTablets] = useState<Tablet[]>([])
   const [answers, setAnswers] = useState<Answers>(defaultAnswers)
-  const [open, setOpen] = useState(false)
+  const [view, setView] = useState<FinderView>("home")
   const [loading, setLoading] = useState(false)
   const [failed, setFailed] = useState(false)
   const launchRef = useRef<HTMLButtonElement>(null)
   const wasOpen = useRef(false)
+  const open = view !== "home"
 
   useEffect(() => {
-    const hero = document.getElementById("home-hero")
-    const main = document.getElementById("main")
+    const hero = document.getElementById(pageIds.hero)
+    const main = document.getElementById(pageIds.main)
     if (!hero || !main) return
 
     hero.hidden = open
-    if (!open) {
-      main.dataset.view = "home"
-      if (wasOpen.current) {
-        window.scrollTo({ top: 0, behavior: "auto" })
-        launchRef.current?.focus({ preventScroll: true })
-      }
+    main.dataset.view = view
+    if (!open && wasOpen.current) {
+      window.scrollTo({ top: 0, behavior: "auto" })
+      launchRef.current?.focus({ preventScroll: true })
     }
     wasOpen.current = open
-  }, [open])
+  }, [open, view])
 
   async function openFinder() {
     setLoading(true)
@@ -57,14 +57,14 @@ export function FinderLauncher() {
 
     try {
       if (!Panel) {
-        const module = await import("@/components/FinderPanel")
-        const catalog = document.getElementById("finder-data")?.textContent
+        const module = await import("@/finder/FinderPanel")
+        const catalog = document.getElementById(pageIds.catalog)?.textContent
         if (!catalog) throw new Error("Finder catalog is missing")
 
         setTablets(JSON.parse(catalog))
         setPanel(() => module.FinderPanel)
       }
-      setOpen(true)
+      setView("questions")
     } catch {
       setFailed(true)
     } finally {
@@ -79,7 +79,6 @@ export function FinderLauncher() {
         type="button"
         size="lg"
         className="mt-6"
-        data-chooser-launch
         disabled={!finderRoot || loading}
         aria-busy={loading}
         onClick={failed ? () => window.location.reload() : openFinder}
@@ -106,8 +105,9 @@ export function FinderLauncher() {
             initialAnswers={answers}
             onHome={(latest) => {
               setAnswers(latest)
-              setOpen(false)
+              setView("home")
             }}
+            onViewChange={setView}
           />,
           finderRoot
         )}

@@ -1,5 +1,5 @@
-import type { Offer, PenPlan } from "@/lib/catalog"
-import { formatInr } from "@/lib/finder"
+import type { Offer, PenPlan } from "@/catalog/catalog"
+import { formatInr } from "@/lib/format"
 
 export function OfferCost({ offer, pen }: { offer: Offer; pen: PenPlan }) {
   return (

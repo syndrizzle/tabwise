@@ -1,13 +1,14 @@
 import { useState } from "react"
 
 import { Separator } from "@/components/ui/separator"
-import { OfferCost } from "@/components/OfferCost"
+import { OfferCost } from "@/catalog/OfferCost"
 import { Button } from "@/components/ui/button"
-import { ReviewEvidence } from "@/components/ReviewEvidence"
+import { ReviewEvidence } from "@/catalog/ReviewEvidence"
 import { Icon } from "@/components/Icon"
 import { TextLink } from "@/components/TextLink"
-import type { PenPlan } from "@/lib/catalog"
-import { formatInr, type Match } from "@/lib/finder"
+import { platformLabel, variantLabel, type PenPlan } from "@/catalog/catalog"
+import type { Match } from "@/finder/recommend"
+import { formatInr, formatShortDate } from "@/lib/format"
 
 export function MatchCard({
   match,
@@ -20,24 +21,15 @@ export function MatchCard({
 }) {
   const [imageFailed, setImageFailed] = useState(false)
   const { tablet, offer, costNow } = match
-  const priceDate = new Date(`${offer.priceDate}T00:00:00Z`).toLocaleDateString(
-    "en-IN",
-    {
-      day: "numeric",
-      month: "short",
-      year: "numeric",
-      timeZone: "UTC",
-    }
-  )
+  const priceDate = formatShortDate(offer.priceDate)
   const showPenPrice = pen !== "none" && !offer.penIncluded && offer.penPriceUrl
 
   return (
     <article
       className="grid min-w-0 items-start gap-3 md:row-span-5 md:grid-rows-subgrid"
-      data-tablet={tablet.id}
       aria-labelledby={`result-${tablet.id}`}
     >
-      <div className="pb-3" data-result-summary>
+      <div className="pb-3">
         {index > 0 && <Separator className="mb-8 md:hidden" />}
         <div className="mb-4 grid aspect-4/3 max-h-60 w-full place-items-center overflow-hidden rounded-2xl bg-[#ffffff] p-4 md:max-h-[190px]">
           {imageFailed ? (
@@ -65,11 +57,10 @@ export function MatchCard({
         </h2>
         <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
           {tablet.screenInches.toFixed(1)}″ display · {tablet.weightLabel} ·{" "}
-          {tablet.platform === "ipados" ? "iPadOS" : "Android"}
+          {platformLabel(tablet)}
         </p>
         <p className="mt-1 text-xs text-muted-foreground">
-          {offer.ramGb === null ? "" : `${offer.ramGb}GB RAM · `}
-          {offer.storageGb}GB · {offer.connectivity}
+          {variantLabel(offer)}
         </p>
         <div className="mt-5 grid gap-5 text-xs leading-relaxed">
           <div>
@@ -114,7 +105,6 @@ export function MatchCard({
         role="link"
         variant="outline"
         size="lg"
-        data-result-price
         render={
           <a href={offer.priceUrl} target="_blank" rel="noopener noreferrer" />
         }
@@ -122,20 +112,14 @@ export function MatchCard({
         Check purchase price
         <Icon name="external" />
       </Button>
-      <div
-        className={showPenPrice ? "grid" : "hidden md:block"}
-        data-result-pen
-      >
+      <div className={showPenPrice ? "grid" : "hidden md:block"}>
         {showPenPrice && (
           <TextLink href={offer.penPriceUrl!} external>
             {pen === "later" ? "See future pen cost" : "Check pen price"}
           </TextLink>
         )}
       </div>
-      <p
-        className="text-[0.625rem] leading-relaxed text-muted-foreground"
-        data-result-reference
-      >
+      <p className="text-[0.625rem] leading-relaxed text-muted-foreground">
         Prices checked {priceDate}.{" "}
         {offer.availability === "unknown"
           ? "Stock not verified; check with the seller."

@@ -1,6 +1,6 @@
 import { Disclosure } from "@/components/Disclosure"
 import { TextLink } from "@/components/TextLink"
-import type { ReviewNote } from "@/lib/catalog"
+import type { ReviewNote } from "@/catalog/catalog"
 
 export function ReviewEvidence({
   notes,

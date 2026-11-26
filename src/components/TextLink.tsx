@@ -1,20 +1,18 @@
 import type { ComponentProps, ReactNode } from "react"
 
-import { Icon, type IconName } from "@/components/Icon"
+import { Icon } from "@/components/Icon"
 import { Button } from "@/components/ui/button"
 
 type TextLinkProps = Omit<ComponentProps<"a">, "children"> &
   Pick<ComponentProps<typeof Button>, "variant" | "size"> & {
     children: ReactNode
     external?: boolean
-    icon?: IconName
   }
 
 export function TextLink({
   children,
   className,
   external = false,
-  icon,
   variant = "link",
   size = "sm",
   ...props
@@ -36,7 +34,7 @@ export function TextLink({
       }
     >
       {children}
-      {(external || icon) && <Icon name={external ? "external" : icon!} />}
+      {external && <Icon name="external" />}
     </Button>
   )
 }

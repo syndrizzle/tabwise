@@ -1,17 +1,18 @@
 ---
 import PageLayout from "@/layouts/PageLayout.astro"
 import { Separator } from "@/components/ui/separator"
-import { OfferCost } from "@/components/OfferCost"
+import { OfferCost } from "@/catalog/OfferCost"
 import { TextLink } from "@/components/TextLink"
-import { ReviewEvidence } from "@/components/ReviewEvidence"
-import { formatInr } from "@/lib/finder"
+import { ReviewEvidence } from "@/catalog/ReviewEvidence"
+import { formatDate, formatDateRange, formatInr } from "@/lib/format"
 import {
   archive,
   cheapestOffer,
-  formatLongDate,
+  platformLabel,
   priceDates,
   tablets,
-} from "@/lib/catalog"
+  variantLabel,
+} from "@/catalog/catalog"
 
 const catalog = tablets
   .map((tablet) => ({ tablet, offer: cheapestOffer(tablet) }))
@@ -22,11 +23,7 @@ const catalog = tablets
   )
 
 const dates = priceDates()
-const [firstDate, lastDate] = [dates[0], dates.at(-1)!]
-const priceRange =
-  firstDate === lastDate
-    ? formatLongDate(lastDate)
-    : `${new Date(`${firstDate}T00:00:00Z`).getUTCDate()}–${formatLongDate(lastDate)}`
+const priceRange = formatDateRange(dates[0], dates.at(-1)!)
 ---
 
 <PageLayout
@@ -60,7 +57,7 @@ const priceRange =
                 <h2>{tablet.name}</h2>
                 <p class="specs">
                   {tablet.screenInches.toFixed(1)}″ screen · {tablet.weightLabel}{" "}
-                  · {tablet.platform === "ipados" ? "iPadOS" : "Android"}
+                  · {platformLabel(tablet)}
                 </p>
               </div>
               <div class="price">
@@ -73,8 +70,7 @@ const priceRange =
               </div>
             </div>
             <p class="variant">
-              {offer.ramGb === null ? "" : `${offer.ramGb}GB RAM · `}
-              {offer.storageGb}GB · {offer.connectivity}
+              {variantLabel(offer)}
             </p>
             <div class="mt-3 max-w-md text-xs leading-relaxed">
               <OfferCost
@@ -92,7 +88,7 @@ const priceRange =
             <p class="reference">
               Reference price:{" "}
               <time datetime={offer.priceDate}>
-                {formatLongDate(offer.priceDate)}
+                {formatDate(offer.priceDate)}
               </time>
               . Current stock and local delivery need checking.
             </p>

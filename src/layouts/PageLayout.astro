@@ -6,10 +6,10 @@ import { TextLink } from "@/components/TextLink"
 interface Props {
   title: string
   description: string
-  width?: string
+  width: string
 }
 
-const { title, description, width = "max-w-3xl" } = Astro.props
+const { title, description, width } = Astro.props
 const links = [
   { href: "/", label: "Finder" },
   { href: "/tablets/", label: "Tablets" },

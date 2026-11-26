@@ -1,5 +1,6 @@
 ---
-import type { Tablet } from "@/lib/catalog"
+import type { Tablet } from "@/catalog/catalog"
+import { pageIds } from "@/finder/page"
 
 interface Props {
   tablets: Tablet[]
@@ -8,9 +9,9 @@ interface Props {
 const { tablets } = Astro.props
 ---
 
-<div id="tablet-finder" class="w-full"></div>
+<div id={pageIds.root} class="w-full"></div>
 <script
-  id="finder-data"
+  id={pageIds.catalog}
   type="application/json"
   is:inline
   set:html={JSON.stringify(tablets)}

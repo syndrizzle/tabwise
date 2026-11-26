@@ -1,13 +1,13 @@
 ---
 import PageLayout from "@/layouts/PageLayout.astro"
 import { TextLink } from "@/components/TextLink"
+import { formatDate } from "@/lib/format"
 import {
   archive,
-  formatLongDate,
   hasVerifiedPen,
   priceDates,
   tablets,
-} from "@/lib/catalog"
+} from "@/catalog/catalog"
 
 const researched = tablets.length + archive.length
 const withPen = tablets.filter(hasVerifiedPen).length
@@ -127,7 +127,7 @@ const checkedOn = priceDates().at(-1)!
     </p>
     <p>
       The latest research batch was checked on{" "}
-      <time datetime={checkedOn}>{formatLongDate(checkedOn)}</time>; individual
+      <time datetime={checkedOn}>{formatDate(checkedOn)}</time>; individual
       price dates remain visible.{" "}
       <TextLink href="/tablets/">Browse the tablets and source notes</TextLink>,
       or <TextLink href="/">start the finder</TextLink>.

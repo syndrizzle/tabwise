@@ -1,4 +1,4 @@
-import type { Answers } from "@/lib/finder"
+import type { Answers } from "@/finder/rules"
 
 export const defaultAnswers = (): Answers => ({
   budget: "30000",

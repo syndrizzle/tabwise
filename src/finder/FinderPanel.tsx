@@ -1,27 +1,33 @@
 import { useEffect, useRef, useState, type SubmitEvent } from "react"
 
 import {
+  budgetLimits,
+  minStorageOptions,
+  asksPressure,
   reconcile,
+  selectedUses,
   stepError,
   stepsFor,
-  studyUses,
   toRequirements,
+  type Answers,
+} from "@/finder/rules"
+import {
+  penChoices,
+  platformChoices,
+  questionCopy,
+  sizeChoices,
+  storageChoices,
+  studyUses,
+  suggestedBudgets,
   useLabel,
   type Choice,
-} from "@/lib/questions"
-import {
-  formatInr,
-  minimumCost,
-  recommend,
-  selectedUses,
-  type Answers,
-  type MinStorage,
-  type PlatformChoice,
-  type SizePreference,
-} from "@/lib/finder"
-import { defaultAnswers } from "@/lib/finder-defaults"
-import type { Tablet } from "@/lib/catalog"
-import { MatchCard } from "@/components/MatchCard"
+} from "@/finder/questions"
+import { minimumCost, recommend, sizeCompromise } from "@/finder/recommend"
+import { defaultAnswers } from "@/finder/defaults"
+import type { FinderView } from "@/finder/page"
+import type { Tablet } from "@/catalog/catalog"
+import { formatInr } from "@/lib/format"
+import { MatchCard } from "@/finder/MatchCard"
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
@@ -62,51 +68,11 @@ export type FinderPanelProps = {
   tablets: Tablet[]
   initialAnswers: Answers
   onHome: (answers: Answers) => void
+  onViewChange: (view: Exclude<FinderView, "home">) => void
 }
 
 const headingClass =
   "font-heading text-[clamp(1.8rem,4vw,2.65rem)] leading-tight tracking-tight text-balance outline-none"
-
-const sizeChoices: Choice<SizePreference>[] = [
-  {
-    value: "portable",
-    title: "Easy to carry",
-    description:
-      "Favor a listed upper weight of 525g or less, without accessories.",
-  },
-  {
-    value: "roomy",
-    title: "More screen space",
-    description:
-      "Favor screens of at least 12 inches for documents and split views.",
-  },
-  {
-    value: "balanced",
-    title: "A good balance",
-    description: "Go with my main study use, then the purchase price.",
-  },
-]
-
-const platformChoices: Choice<PlatformChoice>[] = [
-  {
-    value: "any",
-    title: "No platform requirement",
-  },
-  {
-    value: "android",
-    title: "I need Android",
-  },
-  {
-    value: "ipados",
-    title: "I need iPadOS",
-  },
-  {
-    value: "desktop",
-    title: "I need Windows or macOS software",
-    description:
-      "Full desktop apps, local development tools or course-specific desktop software.",
-  },
-]
 
 function ChoiceGroup<T extends string>({
   label,
@@ -159,6 +125,7 @@ export function FinderPanel({
   tablets,
   initialAnswers,
   onHome,
+  onViewChange,
 }: FinderPanelProps) {
   const [answers, setAnswers] = useState(initialAnswers)
   const [stepIndex, setStepIndex] = useState(0)
@@ -172,47 +139,14 @@ export function FinderPanel({
   const requirements = toRequirements(answers)
   const matches = requirements ? recommend(tablets, requirements) : []
   const minimum = requirements ? minimumCost(tablets, requirements) : null
-  const handwriting = [answers.primary, answers.secondary].some(
-    (use) => use === "notes" || use === "diagrams"
-  )
-  const drawsWithPen =
-    [answers.primary, answers.secondary].includes("diagrams") &&
-    answers.pen !== "none"
-
-  const headings = {
-    study: "What will you mainly use it for?",
-    pen: "Will you use an active pen?",
-    budget:
-      answers.pen === "now"
-        ? "What’s your total setup budget?"
-        : "What’s your tablet purchase budget?",
-    size: "Room to work, or room in your bag?",
-    platform: "Does a particular app decide the platform?",
-    essentials: "Anything else you need?",
-  }
-
-  const descriptions: Partial<Record<typeof step, string>> = {
-    pen: handwriting
-      ? "Handwritten notes and drawings need a verified compatible pen."
-      : "A pen is optional for reading, lectures, browsing and typed work.",
-    budget:
-      answers.pen === "now"
-        ? "The tablet and its named compatible active pen, together."
-        : answers.pen === "later"
-          ? "Count the tablet purchase now. We’ll show the compatible pen’s reference cost separately."
-          : "Count the full listed purchase, including any unavoidable bundle. No separate pen is added.",
-    size: "This is a preference, not a hard filter. Any size compromise will be labelled.",
-    platform:
-      "Check your course’s exact app first. A platform match does not guarantee every app version or feature.",
-    essentials: "Optional hard requirements.",
-  }
+  const copy = questionCopy(step, answers)
+  const compromise = requirements ? sizeCompromise(requirements, matches) : ""
 
   useEffect(() => {
-    const main = document.getElementById("main")
-    if (main) main.dataset.view = view
+    onViewChange(view)
     window.scrollTo({ top: 0, behavior: "auto" })
     headingRef.current?.focus({ preventScroll: true })
-  }, [view, step])
+  }, [view, step, onViewChange])
 
   function update(changes: Partial<Answers>) {
     setAnswers((current) => reconcile({ ...current, ...changes }))
@@ -243,23 +177,6 @@ export function FinderPanel({
     else if (requirements) setView("results")
   }
 
-  const sizeFallback =
-    requirements &&
-    matches.length &&
-    requirements.preference === "roomy" &&
-    matches.every((match) => match.tablet.screenInches < 12)
-      ? "No 12-inch option meets these requirements and budget. These smaller options do."
-      : requirements &&
-          matches.length &&
-          requirements.preference === "portable" &&
-          matches.every(
-            (match) =>
-              match.tablet.weightUpperGrams === null ||
-              match.tablet.weightUpperGrams > 525
-          )
-        ? "No option with a listed upper weight of 525g or less meets these requirements and budget. These heavier options do."
-        : ""
-
   return (
     <section className="w-full" aria-label="Student tablet finder">
       <div className="mx-auto mb-8 flex max-w-xl items-center justify-between gap-3">
@@ -267,7 +184,6 @@ export function FinderPanel({
           type="button"
           variant="ghost"
           size="sm"
-          data-finder-home
           onClick={() => onHome(answers)}
         >
           Home
@@ -285,18 +201,17 @@ export function FinderPanel({
       {view === "questions" ? (
         <form
           ref={formRef}
-          id="finder-form"
           className="mx-auto max-w-xl"
           noValidate
           onSubmit={handleSubmit}
         >
-          <div className="min-h-96 text-center" data-question={step}>
+          <div className="min-h-96 text-center">
             <h1 ref={headingRef} className={headingClass} tabIndex={-1}>
-              {headings[step]}
+              {copy.heading}
             </h1>
-            {descriptions[step] && (
+            {copy.description && (
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                {descriptions[step]}
+                {copy.description}
               </p>
             )}
 
@@ -349,28 +264,7 @@ export function FinderPanel({
                 value={answers.pen}
                 onChange={(pen) => update({ pen })}
                 error={error}
-                options={[
-                  {
-                    value: "now",
-                    title: "Buy a pen now",
-                    description:
-                      "Only verified compatible active pens with documented palm rejection. Count the full setup cost.",
-                  },
-                  {
-                    value: "later",
-                    title: "Keep the option for later",
-                    description:
-                      "Verify the pen setup now, but keep a separate pen’s cost outside today’s budget.",
-                  },
-                  {
-                    value: "none",
-                    title: "No pen needed",
-                    description: handwriting
-                      ? "Change your study use first if you don’t need handwriting."
-                      : "Use touch, reading and typed apps. Pen suitability is not required.",
-                    disabled: handwriting,
-                  },
-                ]}
+                options={penChoices(answers)}
               />
             )}
 
@@ -385,8 +279,8 @@ export function FinderPanel({
                     id="finder-budget"
                     name="budget"
                     type="number"
-                    min={1000}
-                    max={200000}
+                    min={budgetLimits.min}
+                    max={budgetLimits.max}
                     step={1}
                     inputMode="numeric"
                     required
@@ -400,7 +294,7 @@ export function FinderPanel({
                   className="grid grid-cols-2 gap-2 min-[375px]:grid-cols-4"
                   aria-label="Suggested budgets"
                 >
-                  {[10000, 20000, 30000, 50000].map((amount) => (
+                  {suggestedBudgets.map((amount) => (
                     <Button
                       key={amount}
                       type="button"
@@ -466,19 +360,14 @@ export function FinderPanel({
                     <RadioGroup
                       aria-label="Minimum built-in storage"
                       value={String(answers.minStorage)}
-                      onValueChange={(minStorage) => {
-                        if (minStorage !== null) {
-                          update({
-                            minStorage: Number(minStorage) as MinStorage,
-                          })
-                        }
+                      onValueChange={(value) => {
+                        const minStorage = minStorageOptions.find(
+                          (option) => String(option) === value
+                        )
+                        if (minStorage !== undefined) update({ minStorage })
                       }}
                     >
-                      {[
-                        { value: 0, title: "No minimum" },
-                        { value: 128, title: "At least 128GB" },
-                        { value: 256, title: "At least 256GB" },
-                      ].map((option) => (
+                      {storageChoices.map((option) => (
                         <Field key={option.value} orientation="horizontal">
                           <RadioGroupItem
                             id={`storage-${option.value}`}
@@ -491,7 +380,7 @@ export function FinderPanel({
                       ))}
                     </RadioGroup>
                   </FieldSet>
-                  {drawsWithPen && (
+                  {asksPressure(answers) && (
                     <FieldLabel htmlFor="needs-pressure">
                       <Field orientation="horizontal">
                         <FieldContent>
@@ -538,7 +427,7 @@ export function FinderPanel({
                 aria-valuetext={`Question ${stepIndex + 1} of ${steps.length}`}
               />
             </div>
-            <Button type="submit" size="lg" className="col-start-3" data-next>
+            <Button type="submit" size="lg" className="col-start-3">
               {stepIndex === steps.length - 1 ? "Show my matches" : "Continue"}
             </Button>
           </div>
@@ -565,9 +454,9 @@ export function FinderPanel({
                     : "without adding a separate pen"}
                 .
               </p>
-              {sizeFallback && (
+              {compromise && (
                 <p className="mt-3 text-sm text-muted-foreground">
-                  {sizeFallback}
+                  {compromise}
                 </p>
               )}
               <Button
@@ -581,10 +470,7 @@ export function FinderPanel({
             </div>
 
             {matches.length ? (
-              <div
-                className="mx-auto grid max-w-md gap-9 text-left md:max-w-none md:grid-cols-3 md:gap-y-3"
-                id="result-grid"
-              >
+              <div className="mx-auto grid max-w-md gap-9 text-left md:max-w-none md:grid-cols-3 md:gap-y-3">
                 {matches.map((match, index) => (
                   <MatchCard
                     key={match.tablet.id}

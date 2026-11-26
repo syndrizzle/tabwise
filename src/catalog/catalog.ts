@@ -1,5 +1,5 @@
-import archiveData from "@/data/archive.json"
-import tabletData from "@/data/tablets.json"
+import archiveData from "./archive.json"
+import tabletData from "./tablets.json"
 
 export type Platform = "android" | "ipados"
 export type PenPlan = "now" | "later" | "none"
@@ -84,10 +84,8 @@ export const hasVerifiedPen = (tablet: Tablet) =>
 export const priceDates = () =>
   [...new Set(tablets.flatMap((t) => t.offers.map((o) => o.priceDate)))].sort()
 
-export const formatLongDate = (date: string) =>
-  new Date(`${date}T00:00:00Z`).toLocaleDateString("en-IN", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-    timeZone: "UTC",
-  })
+export const platformLabel = (tablet: Tablet) =>
+  tablet.platform === "ipados" ? "iPadOS" : "Android"
+
+export const variantLabel = (offer: Offer) =>
+  `${offer.ramGb === null ? "" : `${offer.ramGb}GB RAM · `}${offer.storageGb}GB · ${offer.connectivity}`

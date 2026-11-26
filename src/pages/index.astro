@@ -2,10 +2,11 @@
 import Layout from "@/layouts/main.astro"
 import Header from "@/components/Header.astro"
 import TabletHero from "@/components/TabletHero.astro"
-import { FinderLauncher } from "@/components/FinderLauncher"
+import { FinderLauncher } from "@/finder/FinderLauncher"
 import { TextLink } from "@/components/TextLink"
-import FinderMount from "@/components/FinderMount.astro"
-import { tablets } from "@/lib/catalog"
+import FinderMount from "@/finder/FinderMount.astro"
+import { tablets } from "@/catalog/catalog"
+import { pageIds } from "@/finder/page"
 
 const title = "Student tablet finder in India, with or without a pen | Tabwise"
 const description =
@@ -28,7 +29,7 @@ const structuredData = {
     set:html={JSON.stringify(structuredData)}
   ></script>
   <a
-    href="#main"
+    href={`#${pageIds.main}`}
     class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-lg focus:bg-background focus:px-4 focus:py-2 focus:ring-2 focus:ring-ring"
   >
     Skip to content
@@ -36,11 +37,11 @@ const structuredData = {
   <div class="mx-auto flex min-h-svh max-w-6xl flex-col px-6 sm:px-10">
     <Header />
     <main
-      id="main"
+      id={pageIds.main}
       data-view="home"
       class="flex flex-1 flex-col items-center justify-center pt-4 pb-10 text-center sm:pb-12"
     >
-      <section id="home-hero" class="flex flex-col items-center">
+      <section id={pageIds.hero} class="flex flex-col items-center">
         <TabletHero />
         <h1 class="max-w-3xl font-heading text-[clamp(1.875rem,9.2vw,2.25rem)] leading-[1.15] tracking-tight sm:text-[3.5rem]">
           Find a tablet for

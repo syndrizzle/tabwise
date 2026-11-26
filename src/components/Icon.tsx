@@ -14,7 +14,7 @@ const icons = {
   external: ArrowUpRight01Icon,
 }
 
-export type IconName = keyof typeof icons
+type IconName = keyof typeof icons
 
 type IconProps = Omit<ComponentProps<typeof HugeiconsIcon>, "icon"> & {
   name: IconName

@@ -1,10 +1,20 @@
+---
+import { themeEvents, themeStorageKey, themes } from "./theme"
+---
+
 <!-- Apply the preference in the head before any page content paints. -->
-<script is:inline>
+<script
+  is:inline
+  define:vars={{
+    storageKey: themeStorageKey,
+    events: themeEvents,
+    themes,
+  }}
+>
   ;(() => {
-    const storageKey = "theme"
     const root = document.documentElement
     const systemAppearance = window.matchMedia("(prefers-color-scheme: dark)")
-    const isTheme = (value) => ["light", "dark", "system"].includes(value)
+    const isTheme = (value) => themes.includes(value)
     let preference = "system"
 
     try {
@@ -22,10 +32,10 @@
       root.classList.toggle("dark", dark)
       root.dataset.theme = preference
       root.style.colorScheme = dark ? "dark" : "light"
-      window.dispatchEvent(new Event("tabwise:theme-change"))
+      window.dispatchEvent(new Event(events.change))
     }
 
-    window.addEventListener("tabwise:set-theme", (event) => {
+    window.addEventListener(events.set, (event) => {
       if (!isTheme(event.detail)) return
       preference = event.detail
       try {
