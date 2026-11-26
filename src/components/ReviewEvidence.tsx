@@ -26,7 +26,12 @@ export function ReviewEvidence({
           </p>
         )}
         {productUrl && (
-          <TextLink href={productUrl} external size="xs">
+          <TextLink
+            href={productUrl}
+            external
+            size="xs"
+            className="-mx-2.5 justify-self-start"
+          >
             Manufacturer specifications
           </TextLink>
         )}
@@ -39,7 +44,7 @@ export function ReviewEvidence({
                 {note.limitation && ` · ${note.limitation}`}
               </p>
               <p className="mt-2 text-muted-foreground">{note.title}</p>
-              <TextLink href={note.url} external size="xs">
+              <TextLink href={note.url} external size="xs" className="-mx-2.5">
                 Read the review
               </TextLink>
             </div>

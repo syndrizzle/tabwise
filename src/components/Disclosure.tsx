@@ -30,7 +30,7 @@ export function Disclosure({
     <Collapsible open={open} onOpenChange={setOpen}>
       <CollapsibleTrigger
         disabled={!hydrated}
-        render={<Button variant="ghost" size="sm" />}
+        render={<Button variant="ghost" size="sm" className="-mx-3" />}
       >
         {title}
         <Icon name={open ? "collapse" : "expand"} />
