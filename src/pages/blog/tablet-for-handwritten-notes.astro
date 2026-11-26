@@ -1,0 +1,341 @@
+---
+import PageLayout from "@/layouts/PageLayout.astro"
+import { TextLink } from "@/components/TextLink"
+import { postBySlug, postPath } from "@/blog/posts"
+import { tablets, type Offer, type Tablet } from "@/catalog/catalog"
+import { formatDate, formatInr } from "@/lib/format"
+
+const post = postBySlug("tablet-for-handwritten-notes")
+const url = new URL(postPath(post), Astro.site).href
+
+type Setup = { tablet: Tablet; offer: Offer & { totalInr: number } }
+
+const setups: Setup[] = tablets
+  .flatMap((tablet) => {
+    const offer = tablet.offers
+      .filter((offer) => offer.eligibility.now && offer.totalInr !== null)
+      .sort((a, b) => a.totalInr! - b.totalInr!)[0]
+    return offer ? [{ tablet, offer: offer as Setup["offer"] }] : []
+  })
+  .sort((a, b) => a.offer.totalInr - b.offer.totalInr)
+
+const budget = 25000
+const underBudget = setups.filter((setup) => setup.offer.totalInr <= budget)
+const cheapest = setups[0]
+const included = setups.filter((setup) => setup.offer.penIncluded)
+const priceDates = [...new Set(setups.map((s) => s.offer.priceDate))].sort()
+
+const name = (tablet: Tablet) =>
+  tablet.brand === "Lenovo" || tablet.brand === "Samsung"
+    ? `${tablet.brand} ${tablet.name}`
+    : tablet.name
+
+const note = (id: string, index = 0) => {
+  const tablet = tablets.find((tablet) => tablet.id === id)!
+  return { tablet, note: tablet.reviewNotes[index] }
+}
+
+const palmReports = [
+  note("samsung-galaxy-tab-s10-lite"),
+  note("lenovo-idea-tab"),
+  note("xiaomi-pad-8"),
+  note("redmi-pad-2"),
+  note("redmi-pad-2-pro-5g", 1),
+]
+
+const appReports = [
+  note("samsung-galaxy-tab-s10-fe"),
+  note("lenovo-tab-m11"),
+  note("xiaomi-pad-7"),
+]
+
+const faqs = [
+  {
+    question: "Which tablet is best for handwritten notes?",
+    answer: `There is no single best tablet; it depends on your budget and platform. In this catalog the lowest documented setup with a verified compatible pen is the ${name(cheapest.tablet)} with the ${cheapest.offer.penName} at ${formatInr(cheapest.offer.totalInr)}. Answer the finder's questions to rank setups for your own budget and study use.`,
+  },
+  {
+    question: "Is a cheap capacitive stylus good enough for notes?",
+    answer:
+      "A generic capacitive stylus works like a fingertip, so the tablet cannot tell it apart from your palm. For handwriting with your hand resting on the screen, use the active pen the manufacturer lists as compatible with that exact tablet.",
+  },
+  {
+    question: "Do I need pressure sensitivity for handwritten notes?",
+    answer:
+      "Not for ordinary notes. Pressure sensitivity changes line weight as you press, which matters more for drawing and diagrams. Palm rejection and a compatible pen matter more for notes.",
+  },
+  {
+    question: "Can I buy the tablet now and the pen later?",
+    answer:
+      "Yes, if the pen you plan to buy is listed as compatible with your exact model. Count its price in your plan from the start, because pen prices and stock can change.",
+  },
+]
+
+const schema = [
+  {
+    "@type": "Article",
+    "@id": `${url}#article`,
+    headline: post.title,
+    description: post.description,
+    datePublished: post.published,
+    dateModified: post.updated,
+    mainEntityOfPage: url,
+    image: new URL("/og-image.png?v=2", Astro.site).href,
+    author: { "@id": new URL("/#organization", Astro.site).href },
+    publisher: { "@id": new URL("/#organization", Astro.site).href },
+    inLanguage: "en-IN",
+  },
+]
+---
+
+<PageLayout
+  title="How to choose a tablet for handwritten notes in India | Tabwise"
+  description={post.description}
+  crumbs={[
+    { name: "Blog", href: "/blog/" },
+    { name: post.title, href: postPath(post) },
+  ]}
+  width="max-w-2xl"
+  schema={schema}
+>
+  <article>
+    <h1 class="page-heading">{post.title}</h1>
+    <p class="mt-4 text-xs text-muted-foreground">
+      Updated <time datetime={post.updated}>{formatDate(post.updated)}</time>.
+      Prices are dated reference observations from the{" "}
+      <a class="underline underline-offset-4" href="/tablets/">Tabwise catalog</a>,
+      not live offers.
+    </p>
+    <p class="page-intro">
+      A tablet for handwritten notes is only as good as its pen. You need an
+      active pen that the manufacturer lists for your exact model, palm
+      rejection so your hand can rest on the screen, and a budget that counts
+      the pen as well as the tablet. This guide covers each of those, then lists
+      the setups in our catalog that meet them.
+    </p>
+
+    <section class="prose-section">
+      <h2>What a note-taking tablet needs</h2>
+      <p>
+        <strong>A named, compatible active pen.</strong> An active pen talks to
+        the screen, so the tablet can tell the pen tip from your palm. A generic
+        capacitive stylus does not, and behaves like a fingertip. Check that the
+        pen is listed for your exact model: pens are not interchangeable across
+        brands, and sometimes not across models from the same brand.
+      </p>
+      <p>
+        <strong>Palm rejection.</strong> Most people rest their hand while they
+        write. Without palm rejection, the resting hand leaves marks or scrolls
+        the page. It depends on the pen, the tablet and the note app together,
+        which is why reviewer reports below name the app they used.
+      </p>
+      <p>
+        <strong>Screen size and weight.</strong> An 11-inch screen fits a page of
+        notes and a PDF side by side in landscape. A lighter tablet is easier to
+        hold on your arm in a lecture. In our catalog, tablets with a verified
+        pen weigh from about 293g to 620g before the case and pen.
+      </p>
+      <p>
+        <strong>Pressure sensitivity</strong> matters for drawing and diagrams,
+        where line weight carries meaning. For handwritten notes it is a nice
+        extra, not a requirement.
+      </p>
+    </section>
+
+    <section class="prose-section">
+      <h2>Count the pen in the price</h2>
+      <p>
+        A tablet's price is not the price of a note-taking setup. Some offers
+        include the pen; for others it costs extra. These are the cheapest
+        verified setups per model in our catalog, with the pen counted, from
+        prices observed on {formatDate(priceDates[0])}
+        {priceDates.length > 1 && ` to ${formatDate(priceDates.at(-1)!)}`}.
+      </p>
+      <div class="mt-6 overflow-x-auto">
+        <table class="w-full text-left text-sm">
+          <thead class="text-xs text-muted-foreground">
+            <tr class="border-b">
+              <th scope="col" class="py-2 pr-4 font-medium">Tablet</th>
+              <th scope="col" class="py-2 pr-4 font-medium">Pen</th>
+              <th scope="col" class="py-2 text-right font-medium">
+                Setup cost
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              setups.map(({ tablet, offer }) => (
+                <tr class="border-b">
+                  <td class="py-2 pr-4">
+                    <a
+                      href={`/tablets/#${tablet.id}`}
+                      class="underline-offset-4 hover:underline"
+                    >
+                      {name(tablet)}
+                    </a>
+                  </td>
+                  <td class="py-2 pr-4 text-muted-foreground">
+                    {offer.penName}
+                    {offer.penIncluded ? " (included)" : ""}
+                  </td>
+                  <td class="py-2 text-right tabular-nums">
+                    {formatInr(offer.totalInr)}
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+      <p>
+        {included.length} of these {setups.length} setups include the pen in the
+        box. With the others, compare the tablet-only price with care: the pen
+        can add several thousand rupees.
+      </p>
+    </section>
+
+    <section class="prose-section">
+      <h2>Tablets with a pen under {formatInr(budget)}</h2>
+      {
+        underBudget.length ? (
+          <>
+            <p>
+              {underBudget.length === 1
+                ? "One verified setup"
+                : `${underBudget.length} verified setups`}{" "}
+              in our catalog cost {formatInr(budget)} or less with the pen
+              counted:
+            </p>
+            <ul>
+              {underBudget.map(({ tablet, offer }) => (
+                <li>
+                  <a
+                    href={`/tablets/#${tablet.id}`}
+                    class="underline underline-offset-4"
+                  >
+                    {name(tablet)}
+                  </a>{" "}
+                  with the {offer.penName}
+                  {offer.penIncluded ? " (included)" : ""}:{" "}
+                  {formatInr(offer.totalInr)}. {tablet.tradeoff}
+                </li>
+              ))}
+            </ul>
+          </>
+        ) : (
+          <p>
+            No verified setup in our catalog costs {formatInr(budget)} or less
+            with the pen counted.
+          </p>
+        )
+      }
+      <p>
+        The lowest documented setup is {formatInr(cheapest.offer.totalInr)}, so
+        we cannot recommend a verified handwriting setup below that. Cheaper
+        tablets exist, but without a named compatible pen with documented palm
+        rejection they are listed in the catalog for reading and typing only.
+      </p>
+    </section>
+
+    <section class="prose-section">
+      <h2>Palm rejection: what reviewers reported</h2>
+      <p>
+        We have not tested these tablets ourselves. These are attributed
+        observations from independent reviews, with the conditions they tested.
+      </p>
+      <ul>
+        {
+          palmReports.map(({ tablet, note }) => (
+            <li>
+              <strong class="font-medium text-foreground">{name(tablet)}</strong>:{" "}
+              {note.summary}{" "}
+              <a
+                href={note.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="underline underline-offset-4"
+              >
+                Source
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <p>
+        The pattern: palm rejection is usually reliable for writing, and less
+        consistent in drawing apps, where gestures like two-finger undo can be
+        triggered by a resting hand.
+      </p>
+    </section>
+
+    <section class="prose-section">
+      <h2>How to take handwritten notes on a tablet</h2>
+      <ol>
+        <li>
+          Pick one note app and stay with it. Reviewers used apps such as
+          Samsung Notes, Nebo, Noteshelf 3 and Xiaomi Notes; your tablet's
+          built-in app is a fine start.
+        </li>
+        <li>
+          If your note app has a setting to draw with the pen only, turn it on
+          so a finger or palm scrolls instead of writing.
+        </li>
+        <li>
+          Keep one notebook per subject, and import lecture slides or PDFs into
+          it so you can write directly on them.
+        </li>
+        <li>
+          Turn on your app's backup or sync before the semester gets busy, so
+          a lost or broken tablet does not take your notes with it.
+        </li>
+      </ol>
+      <p>Reviewer reports on note apps:</p>
+      <ul>
+        {
+          appReports.map(({ tablet, note }) => (
+            <li>
+              <strong class="font-medium text-foreground">{name(tablet)}</strong>:{" "}
+              {note.summary}{" "}
+              <a
+                href={note.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="underline underline-offset-4"
+              >
+                Source
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="prose-section">
+      <h2>Frequently asked questions</h2>
+      {
+        faqs.map((faq) => (
+          <>
+            <h3 class="mt-6 font-medium text-foreground">{faq.question}</h3>
+            <p class="mt-2">{faq.answer}</p>
+          </>
+        ))
+      }
+    </section>
+
+    <section class="prose-section">
+      <h2>Find your setup</h2>
+      <p>
+        The <a class="underline underline-offset-4" href="/">Tabwise finder</a>{" "}
+        asks about your study use, pen plan, budget, size and platform, and
+        shortlists up to three setups. Read{" "}
+        <a class="underline underline-offset-4" href="/about/">how we choose</a>{" "}
+        for the full rules and sources.
+      </p>
+      <p class="mt-6">
+        <TextLink href="/tablets/" className="-mx-3">
+          Compare all tablets
+        </TextLink>
+      </p>
+    </section>
+  </article>
+</PageLayout>

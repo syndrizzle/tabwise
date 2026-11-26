@@ -2,22 +2,36 @@
 import Layout from "@/layouts/main.astro"
 import Header from "@/components/Header.astro"
 import { TextLink } from "@/components/TextLink"
+import Breadcrumbs from "@/components/Breadcrumbs.astro"
+import { breadcrumbList, type Crumb } from "@/lib/schema"
 
 interface Props {
   title: string
   description: string
   width: string
+  crumbs: Crumb[]
+  schema?: Record<string, unknown>[]
 }
 
-const { title, description, width } = Astro.props
+const { title, description, width, crumbs: pageCrumbs, schema = [] } = Astro.props
+const crumbs = [{ name: "Tabwise", href: "/" }, ...pageCrumbs]
 const links = [
   { href: "/", label: "Finder" },
   { href: "/tablets/", label: "Tablets" },
+  { href: "/blog/", label: "Blog" },
   { href: "/about/", label: "How we choose" },
 ]
+const isCurrent = (href: string) =>
+  href === "/"
+    ? Astro.url.pathname === "/"
+    : Astro.url.pathname.startsWith(href)
 ---
 
-<Layout title={title} description={description}>
+<Layout
+  title={title}
+  description={description}
+  schema={[breadcrumbList(Astro.site!, crumbs), ...schema]}
+>
   <a
     href="#main"
     class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:bg-background focus:p-4"
@@ -28,12 +42,12 @@ const links = [
     <Header />
     <nav
       aria-label="Main navigation"
-      class="flex justify-center gap-6 text-sm text-muted-foreground"
+      class="flex flex-wrap justify-center gap-x-1 text-sm text-muted-foreground sm:gap-x-6"
     >
       {links.map((link) => (
         <TextLink
           href={link.href}
-          aria-current={Astro.url.pathname === link.href ? "page" : undefined}
+          aria-current={isCurrent(link.href) ? "page" : undefined}
           variant="ghost"
         >
           {link.label}
@@ -41,6 +55,7 @@ const links = [
       ))}
     </nav>
     <main id="main" class:list={["mx-auto pt-14 pb-24 sm:pt-20", width]}>
+      <Breadcrumbs crumbs={crumbs} />
       <slot />
     </main>
   </div>

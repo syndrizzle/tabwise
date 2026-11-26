@@ -1,12 +1,13 @@
 ---
 import type { Tablet } from "@/catalog/catalog"
+import { withOptimizedImages } from "@/catalog/images"
 import { pageIds } from "@/finder/page"
 
 interface Props {
   tablets: Tablet[]
 }
 
-const { tablets } = Astro.props
+const tablets = await withOptimizedImages(Astro.props.tablets)
 ---
 
 <div id={pageIds.root} class="w-full"></div>

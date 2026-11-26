@@ -14,6 +14,7 @@ import { pageIds, type FinderView } from "@/finder/page"
 import type { FinderPanelProps } from "@/finder/FinderPanel"
 import type { Tablet } from "@/catalog/catalog"
 import type { Answers } from "@/finder/rules"
+import { track } from "@/lib/analytics"
 
 const subscribe = () => () => {}
 const getFinderRoot = () => document.getElementById(pageIds.root)
@@ -65,6 +66,7 @@ export function FinderLauncher() {
         setPanel(() => module.FinderPanel)
       }
       setView("questions")
+      track("finder_start")
     } catch {
       setFailed(true)
     } finally {

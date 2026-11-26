@@ -5,29 +5,20 @@ import TabletHero from "@/components/TabletHero.astro"
 import { FinderLauncher } from "@/finder/FinderLauncher"
 import { TextLink } from "@/components/TextLink"
 import FinderMount from "@/finder/FinderMount.astro"
-import { tablets } from "@/catalog/catalog"
+import { priceDates, tablets } from "@/catalog/catalog"
+import { postBySlug, postPath } from "@/blog/posts"
+import { formatDateRange } from "@/lib/format"
 import { pageIds } from "@/finder/page"
 
 const title = "Student tablet finder in India, with or without a pen | Tabwise"
 const description =
   "Find a student tablet for notes, PDFs, lectures and reading. Compare dated India prices, with a pen or without."
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: "Tabwise",
-  url: new URL("/", Astro.site).href,
-  description,
-  inLanguage: "en-IN",
-}
+const dates = priceDates()
+const priceRange = formatDateRange(dates[0], dates.at(-1)!)
+const guide = postBySlug("tablet-for-handwritten-notes")
 ---
 
 <Layout title={title} description={description}>
-  <script
-    is:inline
-    slot="head"
-    type="application/ld+json"
-    set:html={JSON.stringify(structuredData)}
-  ></script>
   <a
     href={`#${pageIds.main}`}
     class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-lg focus:bg-background focus:px-4 focus:py-2 focus:ring-2 focus:ring-ring"
@@ -50,7 +41,7 @@ const structuredData = {
         <p class="mt-5 max-w-lg text-base leading-relaxed text-muted-foreground sm:text-lg">
           Notes, PDFs, lectures and everyday study, with a pen or without.
         </p>
-        <FinderLauncher client:load />
+        <FinderLauncher client:idle />
         <nav
           aria-label="Explore Tabwise"
           class="mt-3 flex gap-5 text-xs text-muted-foreground"
@@ -67,6 +58,42 @@ const structuredData = {
             Enable JavaScript to answer the guided questions and find a tablet.
           </p>
         </noscript>
+        <section
+          aria-labelledby="how-it-works"
+          class="mt-20 grid max-w-4xl gap-10 text-left sm:grid-cols-3"
+        >
+          <h2 id="how-it-works" class="sr-only">How Tabwise works</h2>
+          <div>
+            <h3 class="font-medium">The whole setup is counted</h3>
+            <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
+              When you want a pen, your budget covers the tablet and its
+              compatible active pen together, so a cheap tablet with an
+              expensive pen never looks cheaper than it is.
+            </p>
+          </div>
+          <div>
+            <h3 class="font-medium">Only verified pens</h3>
+            <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
+              A tablet qualifies for handwritten notes only when a named active
+              pen is listed as compatible and palm rejection is documented.
+            </p>
+          </div>
+          <div>
+            <h3 class="font-medium">Dated, sourced prices</h3>
+            <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
+              {tablets.length} student tablets with India prices checked on
+              {" "}{priceRange}. Each one links to the manufacturer and seller.
+            </p>
+          </div>
+          <p class="text-sm sm:col-span-3">
+            New to note-taking tablets? Read{" "}
+            <a
+              href={postPath(guide)}
+              class="text-primary underline-offset-4 hover:underline"
+              >{guide.title.toLowerCase()}</a
+            >.
+          </p>
+        </section>
       </section>
       <FinderMount tablets={tablets} />
     </main>

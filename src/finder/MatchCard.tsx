@@ -9,6 +9,7 @@ import { TextLink } from "@/components/TextLink"
 import { platformLabel, variantLabel, type PenPlan } from "@/catalog/catalog"
 import type { Match } from "@/finder/recommend"
 import { formatInr, formatShortDate } from "@/lib/format"
+import { track } from "@/lib/analytics"
 
 export function MatchCard({
   match,
@@ -106,7 +107,12 @@ export function MatchCard({
         variant="outline"
         size="lg"
         render={
-          <a href={offer.priceUrl} target="_blank" rel="noopener noreferrer" />
+          <a
+            href={offer.priceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => track("price_check", { tablet_id: tablet.id })}
+          />
         }
       >
         Check purchase price

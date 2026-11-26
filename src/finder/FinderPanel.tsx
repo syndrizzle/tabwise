@@ -27,6 +27,7 @@ import { defaultAnswers } from "@/finder/defaults"
 import type { FinderView } from "@/finder/page"
 import type { Tablet } from "@/catalog/catalog"
 import { formatInr } from "@/lib/format"
+import { track } from "@/lib/analytics"
 import { MatchCard } from "@/finder/MatchCard"
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
@@ -174,7 +175,10 @@ export function FinderPanel({
     }
 
     if (stepIndex < steps.length - 1) goTo(stepIndex + 1)
-    else if (requirements) setView("results")
+    else if (requirements) {
+      setView("results")
+      track("finder_complete", { match_count: matches.length })
+    }
   }
 
   return (

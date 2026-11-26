@@ -1,14 +1,19 @@
 ---
 import ThemeScript from "@/components/theme/ThemeScript.astro"
+import Analytics from "@/components/Analytics.astro"
+import { siteGraph } from "@/lib/schema"
+import bodyFont from "@fontsource-variable/public-sans/files/public-sans-latin-wght-normal.woff2?url"
+import headingFont from "@fontsource-variable/roboto-slab/files/roboto-slab-latin-wght-normal.woff2?url"
 import "@/styles/global.css"
 
 interface Props {
   title: string
   description: string
   noindex?: boolean
+  schema?: Record<string, unknown>[]
 }
 
-const { title, description, noindex = false } = Astro.props
+const { title, description, noindex = false, schema = [] } = Astro.props
 const canonical = new URL(Astro.url.pathname, Astro.site)
 const image = new URL("/og-image.png?v=2", Astro.site)
 const imageAlt =
@@ -44,9 +49,32 @@ const imageAlt =
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="preload"
+      href={bodyFont}
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href={headingFont}
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
     <title>{title}</title>
     <ThemeScript />
-    <slot name="head" />
+    {!noindex && <Analytics />}
+    {
+      !noindex && (
+        <script
+          is:inline
+          type="application/ld+json"
+          set:html={JSON.stringify(siteGraph(Astro.site!, schema))}
+        />
+      )
+    }
   </head>
   <body>
     <slot />

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tabwise.syndrizzle.workers.dev/sitemap-index.xml
+Sitemap: https://tabwise.sahil.lol/sitemap-index.xml

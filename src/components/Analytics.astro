@@ -1,0 +1,23 @@
+---
+import { gaMeasurementId } from "@/lib/analytics"
+---
+
+{
+  gaMeasurementId && (
+    <>
+      <script
+        is:inline
+        async
+        src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
+      />
+      <script is:inline define:vars={{ id: gaMeasurementId }}>
+        window.dataLayer = window.dataLayer || []
+        window.gtag = function () {
+          window.dataLayer.push(arguments)
+        }
+        window.gtag("js", new Date())
+        window.gtag("config", id)
+      </script>
+    </>
+  )
+}
