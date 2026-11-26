@@ -1,23 +1,36 @@
 ---
-import { gaMeasurementId } from "@/lib/analytics"
+import { analyticsId, usesTagManager } from "@/lib/analytics"
 ---
 
 {
-  gaMeasurementId && (
-    <>
-      <script
-        is:inline
-        async
-        src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
-      />
-      <script is:inline define:vars={{ id: gaMeasurementId }}>
+  analyticsId &&
+    (usesTagManager ? (
+      <script is:inline define:vars={{ id: analyticsId }}>
         window.dataLayer = window.dataLayer || []
-        window.gtag = function () {
-          window.dataLayer.push(arguments)
-        }
-        window.gtag("js", new Date())
-        window.gtag("config", id)
+        window.dataLayer.push({
+          "gtm.start": new Date().getTime(),
+          event: "gtm.js",
+        })
+        const script = document.createElement("script")
+        script.async = true
+        script.src = `https://www.googletagmanager.com/gtm.js?id=${id}`
+        document.head.appendChild(script)
       </script>
-    </>
-  )
+    ) : (
+      <>
+        <script
+          is:inline
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${analyticsId}`}
+        />
+        <script is:inline define:vars={{ id: analyticsId }}>
+          window.dataLayer = window.dataLayer || []
+          window.gtag = function () {
+            window.dataLayer.push(arguments)
+          }
+          window.gtag("js", new Date())
+          window.gtag("config", id)
+        </script>
+      </>
+    ))
 }
