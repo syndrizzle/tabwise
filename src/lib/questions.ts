@@ -12,7 +12,7 @@ export type Step =
 export type Choice<T extends string> = {
   value: T
   title: string
-  description: string
+  description?: string
   disabled?: boolean
 }
 
@@ -20,32 +20,26 @@ export const studyUses: Choice<StudyUse>[] = [
   {
     value: "notes",
     title: "Handwritten notes",
-    description: "Write lecture notes, formulas and ideas with a pen.",
   },
   {
     value: "pdfs",
     title: "PDFs & textbooks",
-    description: "Read and highlight course material.",
   },
   {
     value: "reading",
     title: "Reading & browsing",
-    description: "E-books, research and everyday browsing.",
   },
   {
     value: "lectures",
     title: "Lectures & video calls",
-    description: "Recorded classes, live lessons and calls.",
   },
   {
     value: "productivity",
     title: "Typed work & multitasking",
-    description: "Documents, slides and light tablet-based work.",
   },
   {
     value: "diagrams",
     title: "Drawing & diagrams",
-    description: "Handwritten sketches, figures and visual thinking.",
   },
 ]
 

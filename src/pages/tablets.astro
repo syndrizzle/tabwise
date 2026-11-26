@@ -36,13 +36,12 @@ const priceRange =
 >
   <h1 class="page-heading">Student tablets, with the costs clear.</h1>
   <p class="page-intro">
-    {tablets.length} models have a documented new-India purchase offer. Use them
-    for reading, PDFs, lectures or typed work; verified pen setups are labelled
-    separately. Prices are dated observations from {priceRange}, not live
-    offers.
+    {tablets.length} models have a documented new-India purchase offer. Verified
+    pen setups are labelled separately. Prices are dated observations
+    from {priceRange}, not live offers.
   </p>
   <p class="mt-5 text-sm">
-    <TextLink href="/" icon="forward">
+    <TextLink href="/">
       Find my tablet
     </TextLink>
     <span class="mx-3 text-muted-foreground">·</span>
@@ -85,8 +84,8 @@ const priceRange =
             </div>
             <p class="cost">
               {offer.eligibility.now
-                ? `Verified pen setup: ${offer.penName}; ${formatInr(offer.totalInr!)} together at the reference prices.`
-                : "Tablet purchase only: no complete named active-pen setup verified for this offer."}
+                ? `Verified pen setup: ${offer.penName}.`
+                : "Tablet purchase only."}
             </p>
             {tablet.penCaveat && <p class="reference">{tablet.penCaveat}</p>}
             <p class="tradeoff">{tablet.tradeoff}</p>

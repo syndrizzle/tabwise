@@ -39,11 +39,6 @@ export function MatchCard({
     >
       <div className="pb-3" data-result-summary>
         {index > 0 && <Separator className="mb-8 md:hidden" />}
-        <p className="mb-3 text-xs tracking-wide text-muted-foreground uppercase">
-          {index === 0
-            ? "01 / Closest fit"
-            : `0${index + 1} / Another good fit`}
-        </p>
         <div className="mb-4 grid aspect-4/3 max-h-60 w-full place-items-center overflow-hidden rounded-2xl bg-[#ffffff] p-4 md:max-h-[190px]">
           {imageFailed ? (
             <span className="text-center text-xs text-[#52525b]">
@@ -141,7 +136,7 @@ export function MatchCard({
         className="text-[0.625rem] leading-relaxed text-muted-foreground"
         data-result-reference
       >
-        Reference prices · {priceDate}.{" "}
+        Prices checked {priceDate}.{" "}
         {offer.availability === "unknown"
           ? "Stock not verified; check with the seller."
           : "Listed in stock when checked; confirm current delivery."}

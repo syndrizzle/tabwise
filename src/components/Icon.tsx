@@ -1,7 +1,5 @@
 import {
   ArrowDown01Icon,
-  ArrowLeft01Icon,
-  ArrowRight01Icon,
   ArrowUp01Icon,
   ArrowUpRight01Icon,
 } from "@hugeicons/core-free-icons"
@@ -13,8 +11,6 @@ import { cn } from "@/lib/utils"
 const icons = {
   expand: ArrowDown01Icon,
   collapse: ArrowUp01Icon,
-  back: ArrowLeft01Icon,
-  forward: ArrowRight01Icon,
   external: ArrowUpRight01Icon,
 }
 

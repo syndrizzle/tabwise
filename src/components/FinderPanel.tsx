@@ -57,7 +57,6 @@ import {
   EmptyTitle,
 } from "@/components/ui/empty"
 import { Disclosure } from "@/components/Disclosure"
-import { Icon } from "@/components/Icon"
 
 export type FinderPanelProps = {
   tablets: Tablet[]
@@ -92,17 +91,14 @@ const platformChoices: Choice<PlatformChoice>[] = [
   {
     value: "any",
     title: "No platform requirement",
-    description: "I can choose tablet apps to suit the device.",
   },
   {
     value: "android",
     title: "I need Android",
-    description: "My required course app is available on Android.",
   },
   {
     value: "ipados",
     title: "I need iPadOS",
-    description: "My required app needs an iPad.",
   },
   {
     value: "desktop",
@@ -142,7 +138,9 @@ function ChoiceGroup<T extends string>({
             <Field orientation="horizontal" data-invalid={!!error}>
               <FieldContent>
                 <FieldTitle>{option.title}</FieldTitle>
-                <FieldDescription>{option.description}</FieldDescription>
+                {option.description && (
+                  <FieldDescription>{option.description}</FieldDescription>
+                )}
               </FieldContent>
               <RadioGroupItem
                 id={`choice-${option.value}`}
@@ -193,10 +191,9 @@ export function FinderPanel({
     essentials: "Anything else you need?",
   }
 
-  const descriptions = {
-    study: "Choose your main use. You can add one secondary use below.",
+  const descriptions: Partial<Record<typeof step, string>> = {
     pen: handwriting
-      ? "Handwritten notes and drawings need a verified compatible pen. Choose when to buy it."
+      ? "Handwritten notes and drawings need a verified compatible pen."
       : "A pen is optional for reading, lectures, browsing and typed work.",
     budget:
       answers.pen === "now"
@@ -207,8 +204,7 @@ export function FinderPanel({
     size: "This is a preference, not a hard filter. Any size compromise will be labelled.",
     platform:
       "Check your course’s exact app first. A platform match does not guarantee every app version or feature.",
-    essentials:
-      "Optional hard requirements. Leave these off if you’re flexible.",
+    essentials: "Optional hard requirements.",
   }
 
   useEffect(() => {
@@ -274,7 +270,6 @@ export function FinderPanel({
           data-finder-home
           onClick={() => onHome(answers)}
         >
-          <Icon name="back" />
           Home
         </Button>
         <p
@@ -296,17 +291,14 @@ export function FinderPanel({
           onSubmit={handleSubmit}
         >
           <div className="min-h-96 text-center" data-question={step}>
-            <p className="mb-4 text-xs text-muted-foreground">
-              {step === "essentials"
-                ? "Only what matters to your study day."
-                : "A little clarity, one choice at a time."}
-            </p>
             <h1 ref={headingRef} className={headingClass} tabIndex={-1}>
               {headings[step]}
             </h1>
-            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-              {descriptions[step]}
-            </p>
+            {descriptions[step] && (
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                {descriptions[step]}
+              </p>
+            )}
 
             {step === "study" && (
               <>
@@ -401,7 +393,7 @@ export function FinderPanel({
                     value={answers.budget}
                     onChange={(event) => update({ budget: event.target.value })}
                     aria-invalid={!!error}
-                    aria-describedby={`budget-help${error ? " finder-error" : ""}`}
+                    aria-describedby={error ? "finder-error" : undefined}
                   />
                 </InputGroup>
                 <div
@@ -425,9 +417,6 @@ export function FinderPanel({
                     </Button>
                   ))}
                 </div>
-                <FieldDescription id="budget-help">
-                  Choose a starting point, or enter your own amount.
-                </FieldDescription>
               </Field>
             )}
 
@@ -539,7 +528,6 @@ export function FinderPanel({
                 size="sm"
                 onClick={() => goTo(stepIndex - 1)}
               >
-                <Icon name="back" />
                 Back
               </Button>
             )}
@@ -552,7 +540,6 @@ export function FinderPanel({
             </div>
             <Button type="submit" size="lg" className="col-start-3" data-next>
               {stepIndex === steps.length - 1 ? "Show my matches" : "Continue"}
-              <Icon name="forward" />
             </Button>
           </div>
         </form>
@@ -560,11 +547,6 @@ export function FinderPanel({
         requirements && (
           <section aria-labelledby="results-title">
             <div className="mx-auto mb-6 max-w-2xl text-center">
-              <p className="mb-3 text-xs text-muted-foreground">
-                {matches.length
-                  ? "A few good places to start."
-                  : "Let’s adjust the search."}
-              </p>
               <h1
                 ref={headingRef}
                 id="results-title"
@@ -595,7 +577,6 @@ export function FinderPanel({
                 onClick={() => goTo(0)}
               >
                 Edit your answers
-                <Icon name="forward" />
               </Button>
             </div>
 
@@ -637,7 +618,6 @@ export function FinderPanel({
                     variant="outline"
                     onClick={() => goTo(0)}
                   >
-                    <Icon name="back" />
                     Edit requirements
                   </Button>
                 </EmptyContent>
