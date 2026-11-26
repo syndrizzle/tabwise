@@ -1,5 +1,5 @@
 // Either a GA4 Measurement ID ("G-…") or a Google Tag Manager container ID ("GTM-…").
-export const analyticsId = "GTM-M3TSQ3PK"
+export const analyticsId = "G-3NV4WVWVNC"
 
 export const usesTagManager = analyticsId.startsWith("GTM-")
 
